@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel: ContentViewModel
+    
     var body: some View {
-        Text("Hello, world!")
+        Text(viewModel.contentText)
             .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let contentId = UUID()
+        let data = DataManager.preview
+        let viewModel = ContentViewModel(contentId: contentId, data: data)
+        return ContentView(viewModel: viewModel)
     }
 }

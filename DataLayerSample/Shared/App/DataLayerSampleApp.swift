@@ -11,7 +11,7 @@ import SwiftUI
 struct DataLayerSampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: ContentViewModel(contentId: UUID(), data: .shared))
         }
     }
 }
