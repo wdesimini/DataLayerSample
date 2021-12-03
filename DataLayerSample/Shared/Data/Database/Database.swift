@@ -14,3 +14,7 @@ protocol Database {
 protocol LocalDatabase: Database {
     func createDirectory(title: String) throws
 }
+
+protocol TestableDatabase: Database {
+    func reset() throws
+}

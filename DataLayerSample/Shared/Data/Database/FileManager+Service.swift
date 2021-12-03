@@ -52,14 +52,4 @@ extension FileManager {
         try delete(at: url)
         create(data, at: url)
     }
-    
-    // MARK: Utilities
-    
-    func reset() throws {
-        let url = try documentsDirectory()
-        let fileURLs = try contentsOfDirectory(at: url,
-                                               includingPropertiesForKeys: nil,
-                                               options: .skipsHiddenFiles)
-        try fileURLs.forEach(removeItem(at:))
-    }
 }

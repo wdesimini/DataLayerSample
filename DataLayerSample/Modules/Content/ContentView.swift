@@ -18,8 +18,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let contentId = UUID()
         let data = DataManager.preview
+        let contents = data.contentData.objectsById.values
+        let contentId = contents.first!.id
         let viewModel = ContentViewModel(contentId: contentId, data: data)
         return ContentView(viewModel: viewModel)
     }

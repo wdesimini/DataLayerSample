@@ -25,4 +25,9 @@ class DatabaseManager {
         let path = T.directoryTitle
         try local.createDirectory(title: path)
     }
+    
+    func reset() throws {
+        let local = self.local as! TestableDatabase
+        try local.reset()
+    }
 }
