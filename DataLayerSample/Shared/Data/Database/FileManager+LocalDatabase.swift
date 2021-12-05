@@ -27,7 +27,7 @@ extension FileManager: LocalDatabase {
         case .delete:
             try! delete(at: url)
         case .get:
-            data = try! read(at: url)
+            data = try? read(at: url)
         case .patch:
             try! update(body!, at: url)
         case .post:
