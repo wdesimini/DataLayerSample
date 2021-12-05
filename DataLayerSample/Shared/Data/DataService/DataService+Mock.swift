@@ -22,7 +22,7 @@ extension DataService {
         create(mock)
     }
 
-    private func mockData() throws -> Data {
+    func mockData() throws -> Data {
         let filename = Self.mockFilename
         let filePath = Bundle.main.path(forResource: filename, ofType: "json")
         guard let path = filePath else { throw MockDataError.mockFileNotFound }

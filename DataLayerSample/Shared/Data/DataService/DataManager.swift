@@ -20,4 +20,9 @@ class DataManager {
     private func loadPreviewData() {
         try! contentData.createMockData()
     }
+    
+    func register() throws {
+        #warning("tbd - should probably move this...")
+        try contentData.register()
+    }
 }

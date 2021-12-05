@@ -10,10 +10,6 @@ import Foundation
 class DataService<T: DataServiceable>: ObservableObject {
     @Published private(set) var objectsById = [T.ID: T]()
     
-    init() {
-        try! DatabaseManager.shared.register(T.self)
-    }
-    
     func create(_ object: T) {
         let request = DatabaseRequest(method: .post, object: object)
         let response = DatabaseManager.shared.execute(request: request)
@@ -43,6 +39,10 @@ class DataService<T: DataServiceable>: ObservableObject {
         let response = DatabaseManager.shared.execute(request: request)
         guard response.success else { return }
         objectsById.removeValue(forKey: object.id)
+    }
+    
+    func register() throws {
+        try DatabaseManager.shared.register(T.self)
     }
 }
 
