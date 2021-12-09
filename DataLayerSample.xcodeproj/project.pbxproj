@@ -16,17 +16,14 @@
 		CF0ADBFE27587A8400AC4FB9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADBFD27587A8400AC4FB9 /* DatabaseManager.swift */; };
 		CF0ADC0727587A9700AC4FB9 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC0627587A9700AC4FB9 /* Content.swift */; };
 		CF0ADC1027588C4E00AC4FB9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC0F27588C4E00AC4FB9 /* Database.swift */; };
-		CF0ADC2527588F2A00AC4FB9 /* FileManager+LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC2427588F2A00AC4FB9 /* FileManager+LocalDatabase.swift */; };
+		CF0ADC2527588F2A00AC4FB9 /* FileManager+Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC2427588F2A00AC4FB9 /* FileManager+Database.swift */; };
 		CF0ADC45275890E500AC4FB9 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC44275890E500AC4FB9 /* DataService.swift */; };
 		CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */; };
-		CF0ADC71275938FF00AC4FB9 /* DatabaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC70275938FF00AC4FB9 /* DatabaseRequest.swift */; };
-		CF0ADC792759393A00AC4FB9 /* DatabaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC782759393A00AC4FB9 /* DatabaseResponse.swift */; };
 		CF0ADC8427593BC400AC4FB9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC8327593BC400AC4FB9 /* DataManager.swift */; };
 		CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */; };
 		CF0ADC91275947F600AC4FB9 /* DataService+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC90275947F600AC4FB9 /* DataService+Mock.swift */; };
 		CF0ADC9C275A75BE00AC4FB9 /* FileManager+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC9B275A75BE00AC4FB9 /* FileManager+Service.swift */; };
 		CF2991DC275ACE3600E5950A /* MockContent.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2991DB275ACE3600E5950A /* MockContent.json */; };
-		CF2991E8275AD35400E5950A /* FileManager+TestableDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2991E7275AD35400E5950A /* FileManager+TestableDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,17 +59,14 @@
 		CF0ADBFD27587A8400AC4FB9 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		CF0ADC0627587A9700AC4FB9 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		CF0ADC0F27588C4E00AC4FB9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		CF0ADC2427588F2A00AC4FB9 /* FileManager+LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+LocalDatabase.swift"; sourceTree = "<group>"; };
+		CF0ADC2427588F2A00AC4FB9 /* FileManager+Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Database.swift"; sourceTree = "<group>"; };
 		CF0ADC44275890E500AC4FB9 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceable.swift; sourceTree = "<group>"; };
-		CF0ADC70275938FF00AC4FB9 /* DatabaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRequest.swift; sourceTree = "<group>"; };
-		CF0ADC782759393A00AC4FB9 /* DatabaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseResponse.swift; sourceTree = "<group>"; };
 		CF0ADC8327593BC400AC4FB9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		CF0ADC90275947F600AC4FB9 /* DataService+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataService+Mock.swift"; sourceTree = "<group>"; };
 		CF0ADC9B275A75BE00AC4FB9 /* FileManager+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Service.swift"; sourceTree = "<group>"; };
 		CF2991DB275ACE3600E5950A /* MockContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContent.json; sourceTree = "<group>"; };
-		CF2991E7275AD35400E5950A /* FileManager+TestableDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+TestableDatabase.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,11 +210,8 @@
 			children = (
 				CF0ADC0F27588C4E00AC4FB9 /* Database.swift */,
 				CF0ADBFD27587A8400AC4FB9 /* DatabaseManager.swift */,
-				CF0ADC70275938FF00AC4FB9 /* DatabaseRequest.swift */,
-				CF0ADC782759393A00AC4FB9 /* DatabaseResponse.swift */,
-				CF0ADC2427588F2A00AC4FB9 /* FileManager+LocalDatabase.swift */,
+				CF0ADC2427588F2A00AC4FB9 /* FileManager+Database.swift */,
 				CF0ADC9B275A75BE00AC4FB9 /* FileManager+Service.swift */,
-				CF2991E7275AD35400E5950A /* FileManager+TestableDatabase.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -374,21 +365,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF0ADC2527588F2A00AC4FB9 /* FileManager+LocalDatabase.swift in Sources */,
+				CF0ADC2527588F2A00AC4FB9 /* FileManager+Database.swift in Sources */,
 				CF0ADC91275947F600AC4FB9 /* DataService+Mock.swift in Sources */,
 				CF0ADBC227586E9200AC4FB9 /* ContentView.swift in Sources */,
 				CF0ADBC027586E9200AC4FB9 /* DataLayerSampleApp.swift in Sources */,
 				CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */,
 				CF0ADBFE27587A8400AC4FB9 /* DatabaseManager.swift in Sources */,
-				CF0ADC71275938FF00AC4FB9 /* DatabaseRequest.swift in Sources */,
 				CF0ADC1027588C4E00AC4FB9 /* Database.swift in Sources */,
 				CF0ADC0727587A9700AC4FB9 /* Content.swift in Sources */,
 				CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */,
 				CF0ADC8427593BC400AC4FB9 /* DataManager.swift in Sources */,
 				CF0ADC9C275A75BE00AC4FB9 /* FileManager+Service.swift in Sources */,
 				CF0ADC45275890E500AC4FB9 /* DataService.swift in Sources */,
-				CF2991E8275AD35400E5950A /* FileManager+TestableDatabase.swift in Sources */,
-				CF0ADC792759393A00AC4FB9 /* DatabaseResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

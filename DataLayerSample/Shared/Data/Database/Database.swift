@@ -8,7 +8,10 @@
 import Foundation
 
 protocol Database {
-    func execute(request: DatabaseRequest) -> DatabaseResponse
+    func create(_ data: Data, at path: [String])
+    func delete(at path: [String]) throws
+    func read(at path: [String]) throws -> Data
+    func update(_ data: Data, at path: [String]) throws
 }
 
 protocol LocalDatabase: Database {

@@ -16,9 +16,20 @@ class DatabaseManager {
         self.local = local
     }
     
-    func execute(request: DatabaseRequest) -> DatabaseResponse {
-        let response = local.execute(request: request)
-        return response
+    func create(_ data: Data, at path: [String]) {
+        local.create(data, at: path)
+    }
+    
+    func delete(at path: [String]) throws {
+        try local.delete(at: path)
+    }
+    
+    func read(at path: [String]) throws -> Data? {
+        try? local.read(at: path)
+    }
+    
+    func update(_ data: Data, at path: [String]) throws {
+        try local.update(data, at: path)
     }
     
     func register<T>(_ objectClass: T.Type) throws where T: DataServiceable {
