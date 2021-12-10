@@ -31,3 +31,9 @@ extension DataServiceable where Self.ID == UUID {
         id.uuidString
     }
 }
+
+extension DataServiceable where Self.ID == URL {
+    static func string(fromId id: URL) -> String {
+        id.absoluteString
+    }
+}

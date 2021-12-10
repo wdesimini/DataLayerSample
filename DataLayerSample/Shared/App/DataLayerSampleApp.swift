@@ -10,20 +10,12 @@ import SwiftUI
 @main
 struct DataLayerSampleApp: App {
     private let data = DataManager.shared
+    private let randomDogViewModel = RandomDogViewModel(data: .shared)
     
     var body: some Scene {
         WindowGroup {
-            if let viewModel = contentViewModel {
-                ContentView(viewModel: viewModel)
-            } else {
-                Text("(no content)")
-            }
+            RandomDogView(viewModel: randomDogViewModel)
+                .padding()
         }
-    }
-    
-    var contentViewModel: ContentViewModel? {
-        let contents = data.contentData.objectsById.values
-        guard let contentId = contents.first?.id else { return nil }
-        return ContentViewModel(contentId: contentId, data: data)
     }
 }
