@@ -58,4 +58,23 @@ class DataLayerSampleTests: XCTestCase {
         XCTAssertTrue(mockContent.id == sample!.id)
         XCTAssertTrue(mockContent.text == sample!.text)
     }
+    
+    func testUpdateContent() throws {
+        // create
+        try testCreateContent()
+        XCTAssertNotNil(content)
+        
+        // update
+        let service = data.contentData
+        var content = content!
+        let newText = "Ayo, " + content.text
+        content.text = newText
+        service.update(content)
+        
+        // check update stored
+        let id = content.id
+        let stored = service.read(objectWithId: id)
+        XCTAssertNotNil(stored)
+        XCTAssertEqual(stored!.text, newText)
+    }
 }
