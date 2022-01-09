@@ -21,8 +21,11 @@ extension FileManager: DataSource {
         try removeItem(at: url)
     }
     
-    func read(at path: Path) throws -> Data {
+    func read(at path: Path) throws -> Data? {
         let url = url(path: path)
+        let path = url.path
+        let exists = fileExists(atPath: path)
+        guard exists else { return nil }
         return try Data(contentsOf: url)
     }
     
@@ -60,10 +63,6 @@ extension FileManager {
                    in: .userDomainMask,
                    appropriateFor: nil,
                    create: false)
-    }
-    
-    func fileExists(at url: URL) -> Bool {
-        fileExists(atPath: url.path)
     }
     
     private func url(path: Path) -> URL {
