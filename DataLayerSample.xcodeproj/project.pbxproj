@@ -22,6 +22,10 @@
 		CF2991DC275ACE3600E5950A /* MockContent.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2991DB275ACE3600E5950A /* MockContent.json */; };
 		CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCE8278B4DD800E249A4 /* DataSource.swift */; };
 		CFD7BCEB278B4E9200E249A4 /* FileManager+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */; };
+		CFD7BCEF278B67C400E249A4 /* TestableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCEE278B67C400E249A4 /* TestableDataSource.swift */; };
+		CFD7BCF1278B696F00E249A4 /* FileManager+TestableDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCF0278B696F00E249A4 /* FileManager+TestableDatasource.swift */; };
+		CFD7BCF3278B6A9B00E249A4 /* TestableDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCF2278B6A9B00E249A4 /* TestableDataService.swift */; };
+		CFD7BCF5278B6C0900E249A4 /* DataManager+Testable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCF4278B6C0900E249A4 /* DataManager+Testable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		CF2991DB275ACE3600E5950A /* MockContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContent.json; sourceTree = "<group>"; };
 		CFD7BCE8278B4DD800E249A4 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DataSource.swift"; sourceTree = "<group>"; };
+		CFD7BCEE278B67C400E249A4 /* TestableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataSource.swift; sourceTree = "<group>"; };
+		CFD7BCF0278B696F00E249A4 /* FileManager+TestableDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+TestableDatasource.swift"; sourceTree = "<group>"; };
+		CFD7BCF2278B6A9B00E249A4 /* TestableDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataService.swift; sourceTree = "<group>"; };
+		CFD7BCF4278B6C0900E249A4 /* DataManager+Testable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+Testable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +142,10 @@
 			isa = PBXGroup;
 			children = (
 				CF0ADBD127586EA000AC4FB9 /* DataLayerSampleTests.swift */,
+				CFD7BCF4278B6C0900E249A4 /* DataManager+Testable.swift */,
+				CFD7BCF0278B696F00E249A4 /* FileManager+TestableDatasource.swift */,
+				CFD7BCF2278B6A9B00E249A4 /* TestableDataService.swift */,
+				CFD7BCEE278B67C400E249A4 /* TestableDataSource.swift */,
 				CF0ADBD327586EA000AC4FB9 /* Info.plist */,
 			);
 			path = DataLayerSampleTests;
@@ -384,7 +396,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD7BCEF278B67C400E249A4 /* TestableDataSource.swift in Sources */,
+				CFD7BCF1278B696F00E249A4 /* FileManager+TestableDatasource.swift in Sources */,
+				CFD7BCF5278B6C0900E249A4 /* DataManager+Testable.swift in Sources */,
 				CF0ADBD227586EA000AC4FB9 /* DataLayerSampleTests.swift in Sources */,
+				CFD7BCF3278B6A9B00E249A4 /* TestableDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

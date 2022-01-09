@@ -8,7 +8,7 @@
 import Foundation
 
 class DataService<T: DataServiceable>: ObservableObject {
-    private let source: DataSource
+    let source: DataSource
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
     @Published private(set) var objectsById = [T.ID: T]()
@@ -49,11 +49,5 @@ class DataService<T: DataServiceable>: ObservableObject {
     func register() throws {
         let type = T.directoryTitle
         try source.register(type: type)
-    }
-    
-    func reset() throws {
-        let type = T.directoryTitle
-        try source.reset(type: type)
-        objectsById.removeAll()
     }
 }
