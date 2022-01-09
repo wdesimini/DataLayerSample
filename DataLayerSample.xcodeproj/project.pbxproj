@@ -170,7 +170,6 @@
 			children = (
 				CF0ADBF927587A4D00AC4FB9 /* App */,
 				CF0ADC0227587A8800AC4FB9 /* Data */,
-				CF0ADC0B27587A9B00AC4FB9 /* Model */,
 				CF2991E3275ACE7900E5950A /* Resources */,
 			);
 			path = Shared;
@@ -187,8 +186,10 @@
 		CF0ADC0227587A8800AC4FB9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				CF0ADC6C275938CE00AC4FB9 /* DataService */,
-				CFD7BCEC278B52F400E249A4 /* DataSource */,
+				CFD7BCED278B553C00E249A4 /* Manager */,
+				CF0ADC0B27587A9B00AC4FB9 /* Model */,
+				CF0ADC6C275938CE00AC4FB9 /* Service */,
+				CFD7BCEC278B52F400E249A4 /* Source */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -201,15 +202,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CF0ADC6C275938CE00AC4FB9 /* DataService */ = {
+		CF0ADC6C275938CE00AC4FB9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				CF0ADC8327593BC400AC4FB9 /* DataManager.swift */,
 				CF0ADC44275890E500AC4FB9 /* DataService.swift */,
 				CF0ADC90275947F600AC4FB9 /* DataService+Mock.swift */,
 				CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */,
 			);
-			path = DataService;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		CF2991E3275ACE7900E5950A /* Resources */ = {
@@ -220,13 +220,21 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		CFD7BCEC278B52F400E249A4 /* DataSource */ = {
+		CFD7BCEC278B52F400E249A4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				CFD7BCE8278B4DD800E249A4 /* DataSource.swift */,
 				CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */,
 			);
-			path = DataSource;
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CFD7BCED278B553C00E249A4 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CF0ADC8327593BC400AC4FB9 /* DataManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
