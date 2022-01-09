@@ -18,6 +18,8 @@ extension FileManager: DataSource {
     
     func delete(at path: Path) throws {
         let url = url(path: path)
+        let path = url.path
+        guard fileExists(atPath: path) else { return }
         try removeItem(at: url)
     }
     
