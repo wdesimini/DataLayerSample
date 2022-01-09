@@ -51,3 +51,30 @@ class DataService<T: DataServiceable>: ObservableObject {
         try source.register(type: type)
     }
 }
+
+// MARK: - Mock Data
+
+extension DataService {
+    enum MockDataError: Error {
+        case mockFileNotFound
+    }
+
+    private static var mockFilename: String {
+        "Mock" + String(describing: T.self)
+    }
+
+    func createMockData() throws {
+        let data = try mockData()
+        let mock = try decoder.decode(T.self, from: data)
+        create(mock)
+    }
+
+    func mockData() throws -> Data {
+        let bundle = Bundle.main
+        let filename = Self.mockFilename
+        let filePath = bundle.path(forResource: filename, ofType: "json")
+        guard let path = filePath else { throw MockDataError.mockFileNotFound }
+        let url = URL(fileURLWithPath: path)
+        return try Data(contentsOf: url)
+    }
+}
