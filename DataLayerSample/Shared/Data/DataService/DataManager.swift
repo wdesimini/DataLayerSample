@@ -11,9 +11,11 @@ class DataManager {
     static let preview = DataManager(preview: true)
     static let shared = DataManager()
     
-    let contentData = DataService<Content>()
+    let contentData: DataService<Content>
     
     private init(preview: Bool = false) {
+        let source: DataSource = FileManager.default
+        contentData = .init(source: source)
         preview ? loadPreviewData() : ()
     }
     
