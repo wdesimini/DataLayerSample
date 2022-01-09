@@ -33,6 +33,14 @@ extension FileManager: DataSource {
         try createDirectory(title: type)
     }
     
+    func reset(type: String) throws {
+        let path = [type]
+        let url = url(path: path)
+        let exists = directoryExists(at: url)
+        guard exists else { return }
+        try removeItem(at: url)
+    }
+    
     func update(_ data: Data, at path: Path) throws {
         try delete(at: path)
         create(data, at: path)

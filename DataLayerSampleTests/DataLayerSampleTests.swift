@@ -16,7 +16,7 @@ class DataLayerSampleTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        try DatabaseManager.shared.reset()
+        try data.reset()
     }
     
     func testCreateContent() throws {

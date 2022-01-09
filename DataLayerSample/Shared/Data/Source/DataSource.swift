@@ -13,5 +13,6 @@ protocol DataSource {
     func delete(at path: Path) throws
     func read(at path: Path) throws -> Data?
     func register(type: String) throws
+    func reset(type: String) throws
     func update(_ data: Data, at path: Path) throws
 }

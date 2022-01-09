@@ -27,4 +27,8 @@ class DataManager {
         #warning("tbd - should probably move this...")
         try contentData.register()
     }
+    
+    func reset() throws {
+        try contentData.reset()
+    }
 }

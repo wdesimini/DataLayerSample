@@ -50,4 +50,10 @@ class DataService<T: DataServiceable>: ObservableObject {
         let type = T.directoryTitle
         try source.register(type: type)
     }
+    
+    func reset() throws {
+        let type = T.directoryTitle
+        try source.reset(type: type)
+        objectsById.removeAll()
+    }
 }
