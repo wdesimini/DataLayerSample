@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF016BC7278C950C001A5102 /* PreviewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF016BC6278C950C001A5102 /* PreviewDataSource.swift */; };
 		CF0ADBC027586E9200AC4FB9 /* DataLayerSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADBBF27586E9200AC4FB9 /* DataLayerSampleApp.swift */; };
 		CF0ADBC227586E9200AC4FB9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADBC127586E9200AC4FB9 /* ContentView.swift */; };
 		CF0ADBC427586EA000AC4FB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0ADBC327586EA000AC4FB9 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF016BC6278C950C001A5102 /* PreviewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataSource.swift; sourceTree = "<group>"; };
 		CF0ADBBC27586E9200AC4FB9 /* DataLayerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataLayerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0ADBBF27586E9200AC4FB9 /* DataLayerSampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerSampleApp.swift; sourceTree = "<group>"; };
 		CF0ADBC127586E9200AC4FB9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			children = (
 				CFD7BCE8278B4DD800E249A4 /* DataSource.swift */,
 				CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */,
+				CF016BC6278C950C001A5102 /* PreviewDataSource.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF0ADBC227586E9200AC4FB9 /* ContentView.swift in Sources */,
+				CF016BC7278C950C001A5102 /* PreviewDataSource.swift in Sources */,
 				CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */,
 				CF0ADBC027586E9200AC4FB9 /* DataLayerSampleApp.swift in Sources */,
 				CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */,
