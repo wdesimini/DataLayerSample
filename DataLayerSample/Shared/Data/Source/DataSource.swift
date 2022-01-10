@@ -15,3 +15,8 @@ protocol DataSource {
     func register(type: String) throws
     func update(_ data: Data, at path: Path) throws
 }
+
+extension DataSource {
+    func register(type: String) throws {
+    }
+}
