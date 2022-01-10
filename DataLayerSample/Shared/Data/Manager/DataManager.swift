@@ -11,7 +11,7 @@ class DataManager {
     static let preview: DataManager = {
         let source = PreviewDataSource()
         let manager = DataManager(source: source)
-        manager.loadPreviewData()
+        manager.createMockData()
         return manager
     }()
     static let shared = DataManager(source: FileManager.default)
@@ -22,7 +22,7 @@ class DataManager {
         contentData = .init(source: source)
     }
     
-    private func loadPreviewData() {
+    private func createMockData() {
         try! contentData.createMockData()
     }
     
