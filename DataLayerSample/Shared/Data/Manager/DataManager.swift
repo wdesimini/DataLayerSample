@@ -8,15 +8,18 @@
 import Foundation
 
 class DataManager {
-    static let preview = DataManager(preview: true)
-    static let shared = DataManager()
+    static let preview: DataManager = {
+        let source = PreviewDataSource()
+        let manager = DataManager(source: source)
+        manager.loadPreviewData()
+        return manager
+    }()
+    static let shared = DataManager(source: FileManager.default)
     
     let contentData: DataService<Content>
     
-    private init(preview: Bool = false) {
-        let source: DataSource = FileManager.default
+    private init(source: DataSource) {
         contentData = .init(source: source)
-        preview ? loadPreviewData() : ()
     }
     
     private func loadPreviewData() {
@@ -24,7 +27,6 @@ class DataManager {
     }
     
     func register() throws {
-        #warning("tbd - should probably move this...")
         try contentData.register()
     }
 }
