@@ -21,9 +21,9 @@ class ContentViewModel: ObservableObject {
     }
     
     private func observe() -> AnyCancellable {
-        let publisher = service.$objectsById
-        let received = didReceive(contentById:)
-        return publisher.sink(receiveValue: received)
+        service.$objectsById.sink { [weak self] in
+            self?.didReceive(contentById: $0)
+        }
     }
     
     private func didReceive(contentById: [Content.ID: Content]) {
