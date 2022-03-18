@@ -11,8 +11,17 @@ struct ContentView: View {
     @ObservedObject var viewModel: ContentViewModel
     
     var body: some View {
-        Text(viewModel.contentText)
-            .padding()
+        VStack(spacing: 12) {
+            Text(
+                viewModel.contentText
+            )
+            .frame(height: 54)
+            Button(
+                "update",
+                action: viewModel.didTapUpdate
+            )
+            .frame(height: 54)
+        }
     }
 }
 
