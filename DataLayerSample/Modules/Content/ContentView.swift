@@ -21,6 +21,25 @@ struct ContentView: View {
                 action: viewModel.didTapUpdate
             )
             .frame(height: 54)
+            Button(
+                "show child",
+                action: viewModel.didTapShowChild
+            )
+            .frame(height: 54)
+        }
+        .sheet(
+            isPresented: $viewModel.isShowingChild,
+            onDismissAction: viewModel.didDismissChild,
+            content: sheetView
+        )
+    }
+    
+    @ViewBuilder
+    private func sheetView() -> some View {
+        DeferView {
+            Text(
+                viewModel.contentText
+            )
         }
     }
 }

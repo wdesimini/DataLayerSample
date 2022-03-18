@@ -21,6 +21,8 @@
 		CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */; };
 		CF2991DC275ACE3600E5950A /* MockContent.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2991DB275ACE3600E5950A /* MockContent.json */; };
 		CF78CA7827E4E190009A2CE3 /* Button+Willy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA7727E4E190009A2CE3 /* Button+Willy.swift */; };
+		CF78CA7D27E4FB77009A2CE3 /* DeferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA7C27E4FB76009A2CE3 /* DeferView.swift */; };
+		CF78CA7F27E4FEBB009A2CE3 /* View+Willy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA7E27E4FEBB009A2CE3 /* View+Willy.swift */; };
 		CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCE8278B4DD800E249A4 /* DataSource.swift */; };
 		CFD7BCEB278B4E9200E249A4 /* FileManager+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */; };
 		CFD7BCEF278B67C400E249A4 /* TestableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCEE278B67C400E249A4 /* TestableDataSource.swift */; };
@@ -67,6 +69,8 @@
 		CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		CF2991DB275ACE3600E5950A /* MockContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContent.json; sourceTree = "<group>"; };
 		CF78CA7727E4E190009A2CE3 /* Button+Willy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Willy.swift"; sourceTree = "<group>"; };
+		CF78CA7C27E4FB76009A2CE3 /* DeferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferView.swift; sourceTree = "<group>"; };
+		CF78CA7E27E4FEBB009A2CE3 /* View+Willy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Willy.swift"; sourceTree = "<group>"; };
 		CFD7BCE8278B4DD800E249A4 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DataSource.swift"; sourceTree = "<group>"; };
 		CFD7BCEE278B67C400E249A4 /* TestableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataSource.swift; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				CF78CA7727E4E190009A2CE3 /* Button+Willy.swift */,
+				CF78CA7C27E4FB76009A2CE3 /* DeferView.swift */,
+				CF78CA7E27E4FEBB009A2CE3 /* View+Willy.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 				CF0ADBC227586E9200AC4FB9 /* ContentView.swift in Sources */,
 				CF016BC7278C950C001A5102 /* PreviewDataSource.swift in Sources */,
 				CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */,
+				CF78CA7F27E4FEBB009A2CE3 /* View+Willy.swift in Sources */,
 				CF0ADBC027586E9200AC4FB9 /* DataLayerSampleApp.swift in Sources */,
 				CF78CA7827E4E190009A2CE3 /* Button+Willy.swift in Sources */,
 				CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */,
@@ -401,6 +408,7 @@
 				CFD7BCEB278B4E9200E249A4 /* FileManager+DataSource.swift in Sources */,
 				CF0ADC8427593BC400AC4FB9 /* DataManager.swift in Sources */,
 				CF0ADC45275890E500AC4FB9 /* DataService.swift in Sources */,
+				CF78CA7D27E4FB77009A2CE3 /* DeferView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

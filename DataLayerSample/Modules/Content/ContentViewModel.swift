@@ -10,14 +10,19 @@ import SwiftUI
 
 class ContentViewModel: ObservableObject {
     private let contentId: Content.ID
+    @Published var isShowingChild = false
     @Published private var content: Content?
     @ObservedObject private var service: DataService<Content>
+    let didDismissChild: PassthroughSubject<Void, Never>
+    let didTapShowChild: PassthroughSubject<Void, Never>
     let didTapUpdate: PassthroughSubject<Void, Never>
     var cancellables: Set<AnyCancellable>!
     
     init(contentId: Content.ID, data: DataManager) {
         self.contentId = contentId
         self.service = data.contentData
+        self.didDismissChild = PassthroughSubject()
+        self.didTapShowChild = PassthroughSubject()
         self.didTapUpdate = PassthroughSubject()
         self.bind()
     }
@@ -27,6 +32,16 @@ class ContentViewModel: ObservableObject {
         service.$objectsById
             .sink { [weak self] in
                 self?.didReceive(contentById: $0)
+            }
+            .store(in: &cancellables)
+        didDismissChild
+            .sink { [weak self] _ in
+                self?.isShowingChild = false
+            }
+            .store(in: &cancellables)
+        didTapShowChild
+            .sink { [weak self] _ in
+                self?.showChild()
             }
             .store(in: &cancellables)
         didTapUpdate
@@ -42,6 +57,10 @@ class ContentViewModel: ObservableObject {
     
     private func didReceive(contentById: [Content.ID: Content]) {
         content = contentById[contentId]
+    }
+    
+    private func showChild() {
+        isShowingChild = true
     }
     
     private func updateContent() {
