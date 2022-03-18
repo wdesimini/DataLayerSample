@@ -27,20 +27,15 @@ class ContentViewModel: ObservableObject {
     
     private func bind() {
         cancellables = .init()
+        weak var welf = self
         service.$objectsById
-            .sink { [weak self] in
-                self?.didReceive(contentById: $0)
-            }
+            .sink { welf?.didReceive(contentById: $0) }
             .store(in: &cancellables)
         didTapShowChild
-            .sink { [weak self] _ in
-                self?.coordinator.showChild()
-            }
+            .sink { welf?.showContentChild() }
             .store(in: &cancellables)
         didTapUpdate
-            .sink { [weak self] _ in
-                self?.updateContent()
-            }
+            .sink { welf?.updateContent() }
             .store(in: &cancellables)
     }
     
@@ -57,5 +52,11 @@ class ContentViewModel: ObservableObject {
         guard var content = contentsById[contentId] else { return }
         content.text = "ayo, \(content.text)"
         service.update(content)
+    }
+    
+    private func showContentChild() {
+        if let id = content?.childContentId {
+            coordinator.showChild(contentChildId: id)
+        }
     }
 }

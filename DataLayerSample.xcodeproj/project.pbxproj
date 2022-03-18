@@ -20,6 +20,11 @@
 		CF0ADC8427593BC400AC4FB9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC8327593BC400AC4FB9 /* DataManager.swift */; };
 		CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */; };
 		CF2991DC275ACE3600E5950A /* MockContent.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2991DB275ACE3600E5950A /* MockContent.json */; };
+		CF77308627E5157F00A8C392 /* ContentChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF77308527E5157F00A8C392 /* ContentChild.swift */; };
+		CF77308827E5163E00A8C392 /* MockContentChild.json in Resources */ = {isa = PBXBuildFile; fileRef = CF77308727E5163E00A8C392 /* MockContentChild.json */; };
+		CF77308A27E5178E00A8C392 /* ContentChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF77308927E5178E00A8C392 /* ContentChildCoordinator.swift */; };
+		CF77308C27E5195B00A8C392 /* ContentChildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF77308B27E5195B00A8C392 /* ContentChildViewModel.swift */; };
+		CF77308E27E51A1100A8C392 /* ContentChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF77308D27E51A1100A8C392 /* ContentChildView.swift */; };
 		CF78CA7827E4E190009A2CE3 /* Button+Willy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA7727E4E190009A2CE3 /* Button+Willy.swift */; };
 		CF78CA7D27E4FB77009A2CE3 /* DeferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA7C27E4FB76009A2CE3 /* DeferView.swift */; };
 		CF78CA7F27E4FEBB009A2CE3 /* View+Willy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA7E27E4FEBB009A2CE3 /* View+Willy.swift */; };
@@ -69,6 +74,11 @@
 		CF0ADC8327593BC400AC4FB9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		CF2991DB275ACE3600E5950A /* MockContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContent.json; sourceTree = "<group>"; };
+		CF77308527E5157F00A8C392 /* ContentChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChild.swift; sourceTree = "<group>"; };
+		CF77308727E5163E00A8C392 /* MockContentChild.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContentChild.json; sourceTree = "<group>"; };
+		CF77308927E5178E00A8C392 /* ContentChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChildCoordinator.swift; sourceTree = "<group>"; };
+		CF77308B27E5195B00A8C392 /* ContentChildViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChildViewModel.swift; sourceTree = "<group>"; };
+		CF77308D27E51A1100A8C392 /* ContentChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChildView.swift; sourceTree = "<group>"; };
 		CF78CA7727E4E190009A2CE3 /* Button+Willy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Willy.swift"; sourceTree = "<group>"; };
 		CF78CA7C27E4FB76009A2CE3 /* DeferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferView.swift; sourceTree = "<group>"; };
 		CF78CA7E27E4FEBB009A2CE3 /* View+Willy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Willy.swift"; sourceTree = "<group>"; };
@@ -172,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				CF0ADBF127587A3700AC4FB9 /* Content */,
+				CF77308F27E51ACC00A8C392 /* ContentChild */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -220,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				CF0ADC0627587A9700AC4FB9 /* Content.swift */,
+				CF77308527E5157F00A8C392 /* ContentChild.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,8 +249,19 @@
 			isa = PBXGroup;
 			children = (
 				CF2991DB275ACE3600E5950A /* MockContent.json */,
+				CF77308727E5163E00A8C392 /* MockContentChild.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CF77308F27E51ACC00A8C392 /* ContentChild */ = {
+			isa = PBXGroup;
+			children = (
+				CF77308927E5178E00A8C392 /* ContentChildCoordinator.swift */,
+				CF77308D27E51A1100A8C392 /* ContentChildView.swift */,
+				CF77308B27E5195B00A8C392 /* ContentChildViewModel.swift */,
+			);
+			path = ContentChild;
 			sourceTree = "<group>";
 		};
 		CF78CA7927E4E195009A2CE3 /* View */ = {
@@ -374,6 +397,7 @@
 			files = (
 				CF0ADBC727586EA000AC4FB9 /* Preview Assets.xcassets in Resources */,
 				CF2991DC275ACE3600E5950A /* MockContent.json in Resources */,
+				CF77308827E5163E00A8C392 /* MockContentChild.json in Resources */,
 				CF0ADBC427586EA000AC4FB9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +426,7 @@
 				CF0ADBC227586E9200AC4FB9 /* ContentView.swift in Sources */,
 				CF016BC7278C950C001A5102 /* PreviewDataSource.swift in Sources */,
 				CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */,
+				CF77308E27E51A1100A8C392 /* ContentChildView.swift in Sources */,
 				CF78CA7F27E4FEBB009A2CE3 /* View+Willy.swift in Sources */,
 				CF78CA8127E503BF009A2CE3 /* ContentCoordinator.swift in Sources */,
 				CF0ADBC027586E9200AC4FB9 /* DataLayerSampleApp.swift in Sources */,
@@ -410,9 +435,12 @@
 				CF0ADC0727587A9700AC4FB9 /* Content.swift in Sources */,
 				CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */,
 				CFD7BCEB278B4E9200E249A4 /* FileManager+DataSource.swift in Sources */,
+				CF77308A27E5178E00A8C392 /* ContentChildCoordinator.swift in Sources */,
 				CF0ADC8427593BC400AC4FB9 /* DataManager.swift in Sources */,
 				CF0ADC45275890E500AC4FB9 /* DataService.swift in Sources */,
 				CF78CA7D27E4FB77009A2CE3 /* DeferView.swift in Sources */,
+				CF77308627E5157F00A8C392 /* ContentChild.swift in Sources */,
+				CF77308C27E5195B00A8C392 /* ContentChildViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,13 +17,20 @@ class DataManager {
     static let shared = DataManager(source: FileManager.default)
     
     let contentData: DataService<Content>
+    let contentChildData: DataService<ContentChild>
     
     private init(source: DataSource) {
         contentData = .init(source: source)
+        contentChildData = .init(source: source)
     }
     
     private func createMockData() {
-        try! contentData.createMockData()
+        do {
+            try contentData.createMockData()
+            try contentChildData.createMockData()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     func register() throws {

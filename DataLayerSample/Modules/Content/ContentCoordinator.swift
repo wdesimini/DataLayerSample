@@ -10,23 +10,50 @@ import SwiftUI
 
 // MARK: logic
 
-class ContentCoordinator: ObservableObject {
+extension ContentCoordinator {
+    enum SheetState: Identifiable {
+        case childContent
+        var id: SheetState { self }
+    }
+}
+
+class ContentCoordinator:
+    ContentChildCoordinatorParent,
+    ObservableObject
+{
     let viewModel: ContentViewModel
-    @Published var sheetIsPresented = false
+    private let data = DataManager.shared
+    @Published var sheetState: SheetState?
+    private(set) var contentChildCoordinator: ContentChildCoordinator?
     
     init?() {
-        let data = DataManager.shared
         let contentIds = data.contentData.objectsById.keys
         guard let contentId = contentIds.first else { return nil }
         viewModel = ContentViewModel(contentId: contentId, data: data)
         viewModel.coordinator = self
     }
     
-    func showChild() {
-        sheetIsPresented = true
+    func showChild(
+        contentChildId: ContentChild.ID
+    ) {
+        contentChildCoordinator =
+        ContentChildCoordinator(
+            contentChildId: contentChildId,
+            data: data,
+            parent: self
+        )
+        sheetState = .childContent
     }
     
     func onSheetDismiss() {
+        contentChildCoordinator = nil
+        sheetState = nil
+    }
+    
+    // MARK: ContentChildCoordinatorParent
+    
+    func dismissChildContent() {
+        onSheetDismiss()
     }
 }
 
@@ -40,18 +67,23 @@ struct ContentCoordinatorView: View {
             viewModel: coordinator.viewModel
         )
         .sheet(
-            isPresented: $coordinator.sheetIsPresented,
+            item: $coordinator.sheetState,
             onDismiss: coordinator.onSheetDismiss,
             content: sheetView
         )
     }
     
     @ViewBuilder
-    private func sheetView() -> some View {
+    private func sheetView(
+        _ sheetState: ContentCoordinator.SheetState
+    ) -> some View {
         DeferView {
-            Text(
-                coordinator.viewModel.contentText
-            )
+            switch sheetState {
+            case .childContent:
+                ContentChildCoordinatorView(
+                    coordinator: coordinator.contentChildCoordinator!
+                )
+            }
         }
     }
 }

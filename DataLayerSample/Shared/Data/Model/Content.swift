@@ -9,5 +9,6 @@ import Foundation
 
 struct Content: DataServiceable {
     let id: UUID
+    var childContentId: ContentChild.ID?
     var text: String
 }
