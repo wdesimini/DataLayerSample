@@ -20,6 +20,7 @@
 		CF0ADC8427593BC400AC4FB9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC8327593BC400AC4FB9 /* DataManager.swift */; };
 		CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */; };
 		CF2991DC275ACE3600E5950A /* MockContent.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2991DB275ACE3600E5950A /* MockContent.json */; };
+		CF78CA7827E4E190009A2CE3 /* Button+Willy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA7727E4E190009A2CE3 /* Button+Willy.swift */; };
 		CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCE8278B4DD800E249A4 /* DataSource.swift */; };
 		CFD7BCEB278B4E9200E249A4 /* FileManager+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */; };
 		CFD7BCEF278B67C400E249A4 /* TestableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCEE278B67C400E249A4 /* TestableDataSource.swift */; };
@@ -65,6 +66,7 @@
 		CF0ADC8327593BC400AC4FB9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		CF2991DB275ACE3600E5950A /* MockContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContent.json; sourceTree = "<group>"; };
+		CF78CA7727E4E190009A2CE3 /* Button+Willy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Willy.swift"; sourceTree = "<group>"; };
 		CFD7BCE8278B4DD800E249A4 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DataSource.swift"; sourceTree = "<group>"; };
 		CFD7BCEE278B67C400E249A4 /* TestableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataSource.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				CF0ADBF927587A4D00AC4FB9 /* App */,
 				CF0ADC0227587A8800AC4FB9 /* Data */,
 				CF2991E3275ACE7900E5950A /* Resources */,
+				CF78CA7927E4E195009A2CE3 /* View */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -229,6 +232,14 @@
 				CF2991DB275ACE3600E5950A /* MockContent.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CF78CA7927E4E195009A2CE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF78CA7727E4E190009A2CE3 /* Button+Willy.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CFD7BCEC278B52F400E249A4 /* Source */ = {
@@ -383,6 +394,7 @@
 				CF016BC7278C950C001A5102 /* PreviewDataSource.swift in Sources */,
 				CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */,
 				CF0ADBC027586E9200AC4FB9 /* DataLayerSampleApp.swift in Sources */,
+				CF78CA7827E4E190009A2CE3 /* Button+Willy.swift in Sources */,
 				CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */,
 				CF0ADC0727587A9700AC4FB9 /* Content.swift in Sources */,
 				CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */,
