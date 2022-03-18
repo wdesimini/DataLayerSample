@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @ObservedObject var viewModel: ContentViewModel
+struct ContentView<
+    ViewModelType: ContentViewModelInput
+> : View {
+    @ObservedObject var viewModel: ViewModelType
     
     var body: some View {
         VStack(spacing: 12) {

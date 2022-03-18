@@ -8,7 +8,12 @@
 import Combine
 import SwiftUI
 
-class ContentChildViewModel: ObservableObject {
+protocol ContentChildViewModelInput: ObservableObject {
+    var contentChildText: String { get }
+    var dismissPublisher: PassthroughSubject<Void, Never> { get }
+}
+
+class ContentChildViewModel: ContentChildViewModelInput {
     let dismissPublisher: PassthroughSubject<Void, Never>
     private let contentChildId: ContentChild.ID
     weak var coordinator: ContentChildCoordinatorInput!

@@ -8,7 +8,13 @@
 import Combine
 import SwiftUI
 
-class ContentViewModel: ObservableObject {
+protocol ContentViewModelInput: ObservableObject {
+    var contentText: String { get }
+    var didTapShowChild: PassthroughSubject<Void, Never> { get }
+    var didTapUpdate: PassthroughSubject<Void, Never> { get }
+}
+
+class ContentViewModel: ContentViewModelInput {
     private let contentId: Content.ID
     @Published private var content: Content?
     @ObservedObject private var service: DataService<Content>
