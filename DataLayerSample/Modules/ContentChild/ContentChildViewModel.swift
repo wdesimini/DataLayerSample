@@ -16,7 +16,7 @@ protocol ContentChildViewModelInput: ObservableObject {
 class ContentChildViewModel: ContentChildViewModelInput {
     let dismissPublisher: PassthroughSubject<Void, Never>
     private let contentChildId: ContentChild.ID
-    weak var coordinator: ContentChildCoordinatorInput!
+    weak var coordinator: ContentChildCoordinatorInput?
     private var cancellables = Set<AnyCancellable>()
     @ObservedObject private var service: DataService<ContentChild>
     @Published private var contentChild: ContentChild?
@@ -38,7 +38,7 @@ class ContentChildViewModel: ContentChildViewModelInput {
     private func bind() {
         weak var welf = self
         dismissPublisher
-            .sink { welf?.coordinator.stopChildContent() }
+            .sink { welf?.coordinator?.stopChildContent() }
             .store(in: &cancellables)
         service.$objectsById
             .sink { welf?.didReceiveObjectsById($0) }

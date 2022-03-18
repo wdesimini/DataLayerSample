@@ -21,7 +21,7 @@ class ContentViewModel: ContentViewModelInput {
     let didTapShowChild: PassthroughSubject<Void, Never>
     let didTapUpdate: PassthroughSubject<Void, Never>
     var cancellables: Set<AnyCancellable>!
-    weak var coordinator: ContentCoordinatorInput!
+    weak var coordinator: ContentCoordinatorInput?
     
     init(contentId: Content.ID, data: DataManager) {
         self.contentId = contentId
@@ -62,7 +62,7 @@ class ContentViewModel: ContentViewModelInput {
     
     private func showContentChild() {
         if let id = content?.childContentId {
-            coordinator.showChild(contentChildId: id)
+            coordinator?.showChild(contentChildId: id)
         }
     }
 }
