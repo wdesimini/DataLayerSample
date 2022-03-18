@@ -27,20 +27,6 @@ struct ContentView: View {
             )
             .frame(height: 54)
         }
-        .sheet(
-            isPresented: $viewModel.isShowingChild,
-            onDismissAction: viewModel.didDismissChild,
-            content: sheetView
-        )
-    }
-    
-    @ViewBuilder
-    private func sheetView() -> some View {
-        DeferView {
-            Text(
-                viewModel.contentText
-            )
-        }
     }
 }
 

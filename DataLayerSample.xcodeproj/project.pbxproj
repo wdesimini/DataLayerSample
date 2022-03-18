@@ -23,6 +23,7 @@
 		CF78CA7827E4E190009A2CE3 /* Button+Willy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA7727E4E190009A2CE3 /* Button+Willy.swift */; };
 		CF78CA7D27E4FB77009A2CE3 /* DeferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA7C27E4FB76009A2CE3 /* DeferView.swift */; };
 		CF78CA7F27E4FEBB009A2CE3 /* View+Willy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA7E27E4FEBB009A2CE3 /* View+Willy.swift */; };
+		CF78CA8127E503BF009A2CE3 /* ContentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF78CA8027E503BF009A2CE3 /* ContentCoordinator.swift */; };
 		CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCE8278B4DD800E249A4 /* DataSource.swift */; };
 		CFD7BCEB278B4E9200E249A4 /* FileManager+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */; };
 		CFD7BCEF278B67C400E249A4 /* TestableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCEE278B67C400E249A4 /* TestableDataSource.swift */; };
@@ -71,6 +72,7 @@
 		CF78CA7727E4E190009A2CE3 /* Button+Willy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Willy.swift"; sourceTree = "<group>"; };
 		CF78CA7C27E4FB76009A2CE3 /* DeferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferView.swift; sourceTree = "<group>"; };
 		CF78CA7E27E4FEBB009A2CE3 /* View+Willy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Willy.swift"; sourceTree = "<group>"; };
+		CF78CA8027E503BF009A2CE3 /* ContentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCoordinator.swift; sourceTree = "<group>"; };
 		CFD7BCE8278B4DD800E249A4 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DataSource.swift"; sourceTree = "<group>"; };
 		CFD7BCEE278B67C400E249A4 /* TestableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataSource.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		CF0ADBF127587A3700AC4FB9 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				CF78CA8027E503BF009A2CE3 /* ContentCoordinator.swift */,
 				CF0ADBC127586E9200AC4FB9 /* ContentView.swift */,
 				CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */,
 			);
@@ -400,6 +403,7 @@
 				CF016BC7278C950C001A5102 /* PreviewDataSource.swift in Sources */,
 				CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */,
 				CF78CA7F27E4FEBB009A2CE3 /* View+Willy.swift in Sources */,
+				CF78CA8127E503BF009A2CE3 /* ContentCoordinator.swift in Sources */,
 				CF0ADBC027586E9200AC4FB9 /* DataLayerSampleApp.swift in Sources */,
 				CF78CA7827E4E190009A2CE3 /* Button+Willy.swift in Sources */,
 				CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */,

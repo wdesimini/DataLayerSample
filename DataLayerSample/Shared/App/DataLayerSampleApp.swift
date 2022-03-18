@@ -13,17 +13,13 @@ struct DataLayerSampleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if let viewModel = contentViewModel {
-                ContentView(viewModel: viewModel)
+            if let coordinator = ContentCoordinator() {
+                ContentCoordinatorView(
+                    coordinator: coordinator
+                )
             } else {
                 Text("(no content)")
             }
         }
-    }
-    
-    var contentViewModel: ContentViewModel? {
-        let contents = data.contentData.objectsById.values
-        guard let contentId = contents.first?.id else { return nil }
-        return ContentViewModel(contentId: contentId, data: data)
     }
 }
