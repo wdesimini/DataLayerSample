@@ -10,6 +10,10 @@ import SwiftUI
 
 // MARK: logic
 
+protocol ContentCoordinatorInput: AnyObject {
+    func showChild(contentChildId: ContentChild.ID)
+}
+
 extension ContentCoordinator {
     enum SheetState: Identifiable {
         case childContent
@@ -18,6 +22,7 @@ extension ContentCoordinator {
 }
 
 class ContentCoordinator:
+    ContentCoordinatorInput,
     ContentChildCoordinatorParent,
     ObservableObject
 {
@@ -33,9 +38,14 @@ class ContentCoordinator:
         viewModel.coordinator = self
     }
     
-    func showChild(
-        contentChildId: ContentChild.ID
-    ) {
+    func onSheetDismiss() {
+        contentChildCoordinator = nil
+        sheetState = nil
+    }
+    
+    // MARK: ContentCoordinatorInput
+    
+    func showChild(contentChildId: ContentChild.ID) {
         contentChildCoordinator =
         ContentChildCoordinator(
             contentChildId: contentChildId,
@@ -43,11 +53,6 @@ class ContentCoordinator:
             parent: self
         )
         sheetState = .childContent
-    }
-    
-    func onSheetDismiss() {
-        contentChildCoordinator = nil
-        sheetState = nil
     }
     
     // MARK: ContentChildCoordinatorParent

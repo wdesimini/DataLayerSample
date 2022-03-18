@@ -10,7 +10,7 @@ import SwiftUI
 
 // MARK: logic
 
-protocol ContentChildCoordinatorInput {
+protocol ContentChildCoordinatorInput: AnyObject {
     func stopChildContent()
 }
 

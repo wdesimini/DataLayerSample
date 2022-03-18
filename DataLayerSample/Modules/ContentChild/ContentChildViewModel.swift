@@ -11,7 +11,7 @@ import SwiftUI
 class ContentChildViewModel: ObservableObject {
     let dismissPublisher: PassthroughSubject<Void, Never>
     private let contentChildId: ContentChild.ID
-    weak var coordinator: ContentChildCoordinator!
+    weak var coordinator: ContentChildCoordinatorInput!
     private var cancellables = Set<AnyCancellable>()
     @ObservedObject private var service: DataService<ContentChild>
     @Published private var contentChild: ContentChild?
