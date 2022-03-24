@@ -46,12 +46,16 @@ class DataService<T: DataServiceable>: ObservableObject {
     ) {
         let path = T.pathComponents(id: id)
         source.loadData(at: path) {
+            [weak self] in
             let result: Result<T?, Error>
             switch $0 {
             case .success(let data):
-                result = .success(
-                    data.flatMap(DataParser.parse(_:))
-                )
+                let object: T? =
+                data.flatMap(DataParser.parse(_:))
+                object.flatMap {
+                    self?.objectsById[$0.id] = $0
+                }
+                result = .success(object)
             case .failure(let error):
                 result = .failure(error)
             }
