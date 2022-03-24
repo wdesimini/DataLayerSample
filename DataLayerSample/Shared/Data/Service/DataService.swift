@@ -87,6 +87,10 @@ extension DataService: MockDataServicer {
         "Mock" + String(describing: T.self)
     }
 
+    var mockObject: T {
+        [T](objectsById.values).first!
+    }
+    
     func createMockData() throws {
         let data = try mockData()
         let mock: T? = DataParser.parse(data)
@@ -94,7 +98,7 @@ extension DataService: MockDataServicer {
         create(mock)
     }
 
-    func mockData() throws -> Data {
+    private func mockData() throws -> Data {
         try mockData(
             bundle: .main,
             filename: Self.mockFilename,
@@ -102,7 +106,6 @@ extension DataService: MockDataServicer {
         )
     }
 }
-
 
 // MARK: RegisteredDataServicer
 

@@ -7,9 +7,9 @@
 
 import Foundation
 
-protocol MockDataServicer {
-    func createMockData() throws
-    func mockData() throws -> Data
+protocol MockDataServicer: MockDataCreator {
+    associatedtype DataType: DataServiceable
+    var mockObject: DataType { get }
 }
 
 enum MockDataError: Error {

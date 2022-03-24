@@ -25,7 +25,7 @@ class DataManager {
     }
     
     private func createMockData() {
-        let services: [MockDataServicer] = [
+        let services: [MockDataCreator] = [
             contentData,
             contentChildData
         ]

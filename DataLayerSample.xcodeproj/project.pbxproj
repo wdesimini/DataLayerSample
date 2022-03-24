@@ -36,8 +36,9 @@
 		CFD7BCF3278B6A9B00E249A4 /* TestableDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCF2278B6A9B00E249A4 /* TestableDataService.swift */; };
 		CFD7BCF5278B6C0900E249A4 /* DataManager+Testable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCF4278B6C0900E249A4 /* DataManager+Testable.swift */; };
 		CFFCEF2827ECE24B002E567B /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2727ECE24B002E567B /* DataParser.swift */; };
-		CFFCEF2A27ECE38D002E567B /* MockDataServicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2927ECE38D002E567B /* MockDataServicer.swift */; };
+		CFFCEF2A27ECE38D002E567B /* MockDataCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2927ECE38D002E567B /* MockDataCreator.swift */; };
 		CFFCEF2C27ECE4E5002E567B /* RegisteredDataServicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2B27ECE4E5002E567B /* RegisteredDataServicer.swift */; };
+		CFFCEF2E27ED0AA8002E567B /* MockDataServicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2D27ED0AA8002E567B /* MockDataServicer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +94,9 @@
 		CFD7BCF2278B6A9B00E249A4 /* TestableDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataService.swift; sourceTree = "<group>"; };
 		CFD7BCF4278B6C0900E249A4 /* DataManager+Testable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+Testable.swift"; sourceTree = "<group>"; };
 		CFFCEF2727ECE24B002E567B /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
-		CFFCEF2927ECE38D002E567B /* MockDataServicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataServicer.swift; sourceTree = "<group>"; };
+		CFFCEF2927ECE38D002E567B /* MockDataCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataCreator.swift; sourceTree = "<group>"; };
 		CFFCEF2B27ECE4E5002E567B /* RegisteredDataServicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredDataServicer.swift; sourceTree = "<group>"; };
+		CFFCEF2D27ED0AA8002E567B /* MockDataServicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataServicer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +250,8 @@
 				CFFCEF2727ECE24B002E567B /* DataParser.swift */,
 				CF0ADC44275890E500AC4FB9 /* DataService.swift */,
 				CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */,
-				CFFCEF2927ECE38D002E567B /* MockDataServicer.swift */,
+				CFFCEF2927ECE38D002E567B /* MockDataCreator.swift */,
+				CFFCEF2D27ED0AA8002E567B /* MockDataServicer.swift */,
 				CFFCEF2B27ECE4E5002E567B /* RegisteredDataServicer.swift */,
 			);
 			path = Service;
@@ -444,7 +447,7 @@
 				CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */,
 				CF0ADC0727587A9700AC4FB9 /* Content.swift in Sources */,
 				CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */,
-				CFFCEF2A27ECE38D002E567B /* MockDataServicer.swift in Sources */,
+				CFFCEF2A27ECE38D002E567B /* MockDataCreator.swift in Sources */,
 				CFFCEF2C27ECE4E5002E567B /* RegisteredDataServicer.swift in Sources */,
 				CFD7BCEB278B4E9200E249A4 /* FileManager+DataSource.swift in Sources */,
 				CF77308A27E5178E00A8C392 /* ContentChildCoordinator.swift in Sources */,
@@ -452,6 +455,7 @@
 				CF0ADC45275890E500AC4FB9 /* DataService.swift in Sources */,
 				CF78CA7D27E4FB77009A2CE3 /* DeferView.swift in Sources */,
 				CF77308627E5157F00A8C392 /* ContentChild.swift in Sources */,
+				CFFCEF2E27ED0AA8002E567B /* MockDataServicer.swift in Sources */,
 				CF77308C27E5195B00A8C392 /* ContentChildViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

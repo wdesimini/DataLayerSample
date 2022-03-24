@@ -28,8 +28,10 @@ struct ContentChildView<
 struct ContentChildView_Previews: PreviewProvider {
     static var previews: some View {
         let data = DataManager.preview
-        let mockId = data.contentChildData.objectsById.keys.first!
-        let viewModel = ContentChildViewModel(contentChildId: mockId, data: data)
+        let mock = data.contentChildData.mockObject
+        let viewModel = ContentChildViewModel(
+            contentChildId: mock.id, data: data
+        )
         return ContentChildView(viewModel: viewModel)
     }
 }

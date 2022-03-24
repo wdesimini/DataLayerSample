@@ -35,9 +35,10 @@ struct ContentView<
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let data = DataManager.preview
-        let contents = data.contentData.objectsById.values
-        let contentId = contents.first!.id
-        let viewModel = ContentViewModel(contentId: contentId, data: data)
+        let mock = data.contentData.mockObject
+        let viewModel = ContentViewModel(
+            contentId: mock.id, data: data
+        )
         return ContentView(viewModel: viewModel)
     }
 }
