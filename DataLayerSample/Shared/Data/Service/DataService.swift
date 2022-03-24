@@ -19,32 +19,20 @@ class DataService<T: DataServiceable>: ObservableObject {
         self.source = source
     }
     
-    func create(
-        _ object: T,
-        completion: Handler? = nil
-    ) {
-        let group = DispatchGroup()
+    func create(_ object: T) {
         objectsById[object.id] = object
-        if let data = DataParser.serialize(object) {
-            group.enter()
-            let path = object.pathComponents
-            source.create(data, at: path) {
-                group.leave()
-            }
+        guard let data = DataParser.serialize(object) else {
+            return
         }
-        group.notify(queue: .main) {
-            completion?()
+        let path = object.pathComponents
+        source.create(data, at: path) {
         }
     }
     
-    func delete(
-        _ object: T,
-        completion: ErrorHandler? = nil
-    ) {
+    func delete(_ object: T) {
         objectsById.removeValue(forKey: object.id)
         let path = object.pathComponents
-        source.delete(at: path) {
-            completion?($0)
+        source.delete(at: path) { _ in
         }
     }
     
@@ -83,23 +71,13 @@ class DataService<T: DataServiceable>: ObservableObject {
         objectsById[id]
     }
     
-    func update(
-        _ object: T,
-        completion: ErrorHandler? = nil
-    ) {
-        let group = DispatchGroup()
-        var updateError: Error? = nil
+    func update(_ object: T) {
         objectsById[object.id] = object
-        if let data = DataParser.serialize(object) {
-            group.enter()
-            let path = object.pathComponents
-            source.update(data, at: path) {
-                updateError = $0
-                group.leave()
-            }
+        guard let data = DataParser.serialize(object) else {
+            return
         }
-        group.notify(queue: .main) {
-            completion?(updateError)
+        let path = object.pathComponents
+        source.update(data, at: path) { _ in
         }
     }
 }
