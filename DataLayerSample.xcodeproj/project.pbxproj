@@ -35,6 +35,9 @@
 		CFD7BCF1278B696F00E249A4 /* FileManager+TestableDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCF0278B696F00E249A4 /* FileManager+TestableDatasource.swift */; };
 		CFD7BCF3278B6A9B00E249A4 /* TestableDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCF2278B6A9B00E249A4 /* TestableDataService.swift */; };
 		CFD7BCF5278B6C0900E249A4 /* DataManager+Testable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD7BCF4278B6C0900E249A4 /* DataManager+Testable.swift */; };
+		CFFCEF2827ECE24B002E567B /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2727ECE24B002E567B /* DataParser.swift */; };
+		CFFCEF2A27ECE38D002E567B /* MockDataServicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2927ECE38D002E567B /* MockDataServicer.swift */; };
+		CFFCEF2C27ECE4E5002E567B /* RegisteredDataServicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2B27ECE4E5002E567B /* RegisteredDataServicer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		CFD7BCF0278B696F00E249A4 /* FileManager+TestableDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+TestableDatasource.swift"; sourceTree = "<group>"; };
 		CFD7BCF2278B6A9B00E249A4 /* TestableDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataService.swift; sourceTree = "<group>"; };
 		CFD7BCF4278B6C0900E249A4 /* DataManager+Testable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+Testable.swift"; sourceTree = "<group>"; };
+		CFFCEF2727ECE24B002E567B /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		CFFCEF2927ECE38D002E567B /* MockDataServicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataServicer.swift; sourceTree = "<group>"; };
+		CFFCEF2B27ECE4E5002E567B /* RegisteredDataServicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredDataServicer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,8 +245,11 @@
 		CF0ADC6C275938CE00AC4FB9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				CFFCEF2727ECE24B002E567B /* DataParser.swift */,
 				CF0ADC44275890E500AC4FB9 /* DataService.swift */,
 				CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */,
+				CFFCEF2927ECE38D002E567B /* MockDataServicer.swift */,
+				CFFCEF2B27ECE4E5002E567B /* RegisteredDataServicer.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -427,6 +436,7 @@
 				CF016BC7278C950C001A5102 /* PreviewDataSource.swift in Sources */,
 				CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */,
 				CF77308E27E51A1100A8C392 /* ContentChildView.swift in Sources */,
+				CFFCEF2827ECE24B002E567B /* DataParser.swift in Sources */,
 				CF78CA7F27E4FEBB009A2CE3 /* View+Willy.swift in Sources */,
 				CF78CA8127E503BF009A2CE3 /* ContentCoordinator.swift in Sources */,
 				CF0ADBC027586E9200AC4FB9 /* DataLayerSampleApp.swift in Sources */,
@@ -434,6 +444,8 @@
 				CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */,
 				CF0ADC0727587A9700AC4FB9 /* Content.swift in Sources */,
 				CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */,
+				CFFCEF2A27ECE38D002E567B /* MockDataServicer.swift in Sources */,
+				CFFCEF2C27ECE4E5002E567B /* RegisteredDataServicer.swift in Sources */,
 				CFD7BCEB278B4E9200E249A4 /* FileManager+DataSource.swift in Sources */,
 				CF77308A27E5178E00A8C392 /* ContentChildCoordinator.swift in Sources */,
 				CF0ADC8427593BC400AC4FB9 /* DataManager.swift in Sources */,

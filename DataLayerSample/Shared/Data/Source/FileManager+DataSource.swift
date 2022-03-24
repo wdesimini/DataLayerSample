@@ -10,6 +10,100 @@ import Foundation
 // MARK: DataSource
 
 extension FileManager: DataSource {
+    static var readQueue: DispatchQueue {
+        .main
+    }
+    
+    static var writeQueue: DispatchQueue {
+        .global(qos: .background)
+    }
+    
+    func create(
+        _ data: Data,
+        at path: Path,
+        completion: @escaping Handler
+    ) {
+        FileManager.writeQueue.async {
+            self.create(data, at: path)
+            FileManager.readQueue.async(
+                execute: completion
+            )
+        }
+    }
+    
+    func delete(
+        at path: Path,
+        completion: @escaping ErrorHandler
+    ) {
+        FileManager.writeQueue.async {
+            let deleteError: Error?
+            do {
+                try self.delete(at: path)
+                deleteError = nil
+            } catch {
+                deleteError = error
+            }
+            FileManager.readQueue.async {
+                completion(deleteError)
+            }
+        }
+    }
+    
+    func read(
+        at path: Path,
+        completion: @escaping ReadHandler
+    ) {
+        FileManager.writeQueue.async {
+            let result: Result<Data?, Error>
+            do {
+                let data = try self.read(at: path)
+                result = .success(data)
+            } catch {
+                result = .failure(error)
+            }
+            FileManager.readQueue.async {
+                completion(result)
+            }
+        }
+    }
+    
+    func update(
+        _ data: Data,
+        at path: Path,
+        completion: @escaping ErrorHandler
+    ) {
+        FileManager.writeQueue.async {
+            let updateError: Error?
+            do {
+                try self.update(data, at: path)
+                updateError = nil
+            } catch {
+                updateError = error
+            }
+            FileManager.readQueue.async {
+                completion(updateError)
+            }
+        }
+    }
+    
+    func register(
+        type: String,
+        completion: @escaping ErrorHandler
+    ) {
+        FileManager.writeQueue.async {
+            let registerError: Error?
+            do {
+                try self.register(type: type)
+                registerError = nil
+            } catch {
+                registerError = error
+            }
+            FileManager.readQueue.async {
+                completion(registerError)
+            }
+        }
+    }
+    
     func create(_ data: Data, at path: Path) {
         let url = url(path: path)
         let path = url.path

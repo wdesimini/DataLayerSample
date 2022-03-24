@@ -25,15 +25,37 @@ class DataManager {
     }
     
     private func createMockData() {
+        let services: [MockDataServicer] = [
+            contentData,
+            contentChildData
+        ]
         do {
-            try contentData.createMockData()
-            try contentChildData.createMockData()
+            try services.forEach {
+                try $0.createMockData()
+            }
         } catch {
             print(error.localizedDescription)
         }
     }
     
-    func register() throws {
-        try contentData.register()
+    func register() {
+        let group = DispatchGroup()
+        var error: Error?
+        let services: [RegisteredDataServicer] = [
+            contentData,
+            contentChildData
+        ]
+        for service in services {
+            group.enter()
+            service.register {
+                error = $0 ?? error
+                group.leave()
+            }
+        }
+        group.notify(queue: .main) {
+            error.flatMap {
+                print($0.localizedDescription)
+            }
+        }
     }
 }
