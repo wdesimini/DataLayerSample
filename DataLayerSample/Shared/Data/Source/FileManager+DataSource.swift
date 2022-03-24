@@ -18,45 +18,14 @@ extension FileManager: DataSource {
         .global(qos: .background)
     }
     
-    func create(
-        _ data: Data,
+    func loadData(
         at path: Path,
-        completion: @escaping Handler
-    ) {
-        FileManager.writeQueue.async {
-            self.create(data, at: path)
-            FileManager.readQueue.async(
-                execute: completion
-            )
-        }
-    }
-    
-    func delete(
-        at path: Path,
-        completion: @escaping ErrorHandler
-    ) {
-        FileManager.writeQueue.async {
-            let deleteError: Error?
-            do {
-                try self.delete(at: path)
-                deleteError = nil
-            } catch {
-                deleteError = error
-            }
-            FileManager.readQueue.async {
-                completion(deleteError)
-            }
-        }
-    }
-    
-    func read(
-        at path: Path,
-        completion: @escaping ReadHandler
+        completion: @escaping LoadHandler
     ) {
         FileManager.writeQueue.async {
             let result: Result<Data?, Error>
             do {
-                let data = try self.read(at: path)
+                let data = try self.load(at: path)
                 result = .success(data)
             } catch {
                 result = .failure(error)
@@ -67,21 +36,21 @@ extension FileManager: DataSource {
         }
     }
     
-    func update(
-        _ data: Data,
+    func saveData(
+        _ data: Data?,
         at path: Path,
         completion: @escaping ErrorHandler
     ) {
         FileManager.writeQueue.async {
-            let updateError: Error?
+            let saveError: Error?
             do {
-                try self.update(data, at: path)
-                updateError = nil
+                try self.save(data, at: path)
+                saveError = nil
             } catch {
-                updateError = error
+                saveError = error
             }
             FileManager.readQueue.async {
-                completion(updateError)
+                completion(saveError)
             }
         }
     }
@@ -93,7 +62,7 @@ extension FileManager: DataSource {
         FileManager.writeQueue.async {
             let registerError: Error?
             do {
-                try self.register(type: type)
+                try self.createDirectory(title: type)
                 registerError = nil
             } catch {
                 registerError = error
@@ -103,41 +72,30 @@ extension FileManager: DataSource {
             }
         }
     }
-    
-    func create(_ data: Data, at path: Path) {
-        let url = url(path: path)
-        let path = url.path
-        createFile(atPath: path, contents: data)
-    }
-    
-    func delete(at path: Path) throws {
-        let url = url(path: path)
-        let path = url.path
-        guard fileExists(atPath: path) else { return }
-        try removeItem(at: url)
-    }
-    
-    func read(at path: Path) throws -> Data? {
-        let url = url(path: path)
-        let path = url.path
-        let exists = fileExists(atPath: path)
-        guard exists else { return nil }
-        return try Data(contentsOf: url)
-    }
-    
-    func register(type: String) throws {
-        try createDirectory(title: type)
-    }
-    
-    func update(_ data: Data, at path: Path) throws {
-        try delete(at: path)
-        create(data, at: path)
-    }
 }
 
 // MARK: Utilities
 
 extension FileManager {
+    func load(at path: Path) throws -> Data? {
+        let url = url(path: path)
+        let path = url.path
+        return (fileExists(atPath: path)
+                ? try Data(contentsOf: url)
+                : nil)
+    }
+    
+    func save(_ data: Data?, at path: Path) throws {
+        let url = url(path: path)
+        let path = url.path
+        if fileExists(atPath: path) {
+            try removeItem(at: url)
+        }
+        if let data = data {
+            createFile(atPath: path, contents: data)
+        }
+    }
+    
     private func createDirectory(title: String) throws {
         let baseURL = try documentsDirectory()
         let url = baseURL.appendingPathComponent(title)

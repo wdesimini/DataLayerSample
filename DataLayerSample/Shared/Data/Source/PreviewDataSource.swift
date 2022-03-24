@@ -11,30 +11,15 @@ import Foundation
 /// Empty concrete DataSource
 /// to use during previews in SwiftUI view files
 struct PreviewDataSource: DataSource {
-    func create(
-        _ data: Data,
+    func loadData(
         at path: Path,
-        completion: @escaping Handler
-    ) {
-        completion()
-    }
-    
-    func delete(
-        at path: Path,
-        completion: @escaping ErrorHandler
-    ) {
-        completion(nil)
-    }
-    
-    func read(
-        at path: Path,
-        completion: @escaping ReadHandler
+        completion: @escaping LoadHandler
     ) {
         completion(.success(nil))
     }
     
-    func update(
-        _ data: Data,
+    func saveData(
+        _ data: Data?,
         at path: Path,
         completion: @escaping ErrorHandler
     ) {

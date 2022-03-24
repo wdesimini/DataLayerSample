@@ -10,7 +10,7 @@ import Foundation
 class DataService<T: DataServiceable>: ObservableObject {
     typealias Handler = () -> Void
     typealias ErrorHandler = (Error?) -> Void
-    typealias ReadHandler = (Result<T?, Error>) -> Void
+    typealias LoadHandler = (Result<T?, Error>) -> Void
     
     fileprivate let source: DataSource
     @Published private(set) var objectsById = [T.ID: T]()
@@ -21,49 +21,13 @@ class DataService<T: DataServiceable>: ObservableObject {
     
     func create(_ object: T) {
         objectsById[object.id] = object
-        guard let data = DataParser.serialize(object) else {
-            return
-        }
-        let path = object.pathComponents
-        source.create(data, at: path) {
-        }
+        save(object)
     }
     
     func delete(_ object: T) {
         objectsById.removeValue(forKey: object.id)
         let path = object.pathComponents
-        source.delete(at: path) { _ in
-        }
-    }
-    
-    func load(
-        objectWithId id: T.ID,
-        completion: ReadHandler? = nil
-    ) {
-        let group = DispatchGroup()
-        var result: Result<T?, Error> = .success(nil)
-        if let object = read(objectWithId: id) {
-            result = .success(object)
-        } else {
-            group.enter()
-            let path = T.pathComponents(id: id)
-            source.read(at: path) {
-                switch $0 {
-                case .success(let data):
-                    result = .success(
-                        data.flatMap(DataParser.parse(_:))
-                    )
-                case .failure(let error):
-                    result = .failure(error)
-                }
-                group.leave()
-            }
-        }
-        group.notify(queue: .main) {
-            if let object = try? result.get() {
-                self.objectsById[object.id] = object
-            }
-            completion?(result)
+        source.saveData(nil, at: path) { _ in
         }
     }
     
@@ -73,13 +37,47 @@ class DataService<T: DataServiceable>: ObservableObject {
     
     func update(_ object: T) {
         objectsById[object.id] = object
-        guard let data = DataParser.serialize(object) else {
-            return
-        }
-        let path = object.pathComponents
-        source.update(data, at: path) { _ in
+        save(object)
+    }
+    
+    func load(
+        objectWithId id: T.ID,
+        completion: LoadHandler? = nil
+    ) {
+        let path = T.pathComponents(id: id)
+        source.loadData(at: path) {
+            let result: Result<T?, Error>
+            switch $0 {
+            case .success(let data):
+                result = .success(
+                    data.flatMap(DataParser.parse(_:))
+                )
+            case .failure(let error):
+                result = .failure(error)
+            }
+            completion?(result)
         }
     }
+    
+    func save(
+        _ object: T,
+        completion: ErrorHandler? = nil
+    ) {
+        let group = DispatchGroup()
+        var error: Error? = nil
+        if let data = DataParser.serialize(object) {
+            group.enter()
+            let path = object.pathComponents
+            source.saveData(data, at: path) {
+                error = $0
+                group.leave()
+            }
+        }
+        group.notify(queue: .main) {
+            completion?(error)
+        }
+    }
+    
 }
 
 // MARK: MockDataServicer

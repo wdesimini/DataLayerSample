@@ -9,28 +9,18 @@ import Foundation
 
 protocol DataSource {
     typealias Path = [String]
-    typealias Handler = () -> Void
     typealias ErrorHandler = (Error?) -> Void
-    typealias ReadHandler = (Result<Data?, Error>) -> Void
-    func create(
-        _ data: Data,
-        at path: Path,
-        completion: @escaping Handler
-    )
-    func delete(
-        at path: Path,
-        completion: @escaping ErrorHandler
-    )
-    func read(
-        at path: Path,
-        completion: @escaping ReadHandler
-    )
+    typealias LoadHandler = (Result<Data?, Error>) -> Void
     func register(
         type: String,
         completion: @escaping ErrorHandler
     )
-    func update(
-        _ data: Data,
+    func loadData(
+        at path: Path,
+        completion: @escaping LoadHandler
+    )
+    func saveData(
+        _ data: Data?,
         at path: Path,
         completion: @escaping ErrorHandler
     )
