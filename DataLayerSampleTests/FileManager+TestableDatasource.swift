@@ -9,7 +9,11 @@
 import Foundation
 
 extension FileManager: TestableDataSource {
-    func reset(type: String) throws {
+    func registerSyncly(type: String) throws {
+        try createDirectory(title: type)
+    }
+    
+    func resetSyncly(type: String) throws {
         let path = [type]
         let url = url(path: path)
         var exists: ObjCBool = false

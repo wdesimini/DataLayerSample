@@ -8,5 +8,6 @@
 @testable import DataLayerSample
 
 protocol TestableDataSource: DataSource {
-    func reset(type: String) throws
+    func registerSyncly(type: String) throws
+    func resetSyncly(type: String) throws
 }

@@ -8,7 +8,22 @@
 @testable import DataLayerSample
 
 extension DataManager {
-    func reset() throws {
-        try contentData.reset()
+    private var services: [TestableDataService] {
+        [
+            contentData,
+            contentChildData
+        ]
+    }
+    
+    func registerSyncly() throws {
+        try services.forEach {
+            try $0.registerSyncly()
+        }
+    }
+    
+    func resetSyncly() throws {
+        try services.forEach {
+            try $0.resetSyncly()
+        }
     }
 }

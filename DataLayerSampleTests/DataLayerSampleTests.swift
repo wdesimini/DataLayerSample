@@ -13,11 +13,11 @@ class DataLayerSampleTests: XCTestCase {
     private var content: Content?
 
     override func setUpWithError() throws {
-        try data.register()
+        try data.registerSyncly()
     }
 
     override func tearDownWithError() throws {
-        try data.reset()
+        try data.resetSyncly()
         content = nil
     }
     

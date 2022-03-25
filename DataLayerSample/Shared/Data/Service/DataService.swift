@@ -12,7 +12,7 @@ class DataService<T: DataServiceable>: ObservableObject {
     typealias ErrorHandler = (Error?) -> Void
     typealias LoadHandler = (Result<T?, Error>) -> Void
     
-    fileprivate let source: DataSource
+    let source: DataSource
     @Published private(set) var objectsById = [T.ID: T]()
     
     init(source: DataSource) {
@@ -102,7 +102,7 @@ extension DataService: MockDataServicer {
         create(mock)
     }
 
-    private func mockData() throws -> Data {
+    func mockData() throws -> Data {
         try mockData(
             bundle: .main,
             filename: Self.mockFilename,

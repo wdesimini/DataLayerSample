@@ -96,7 +96,7 @@ extension FileManager {
         }
     }
     
-    private func createDirectory(title: String) throws {
+    func createDirectory(title: String) throws {
         let baseURL = try documentsDirectory()
         let url = baseURL.appendingPathComponent(title)
         let exists = directoryExists(at: url)
