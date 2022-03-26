@@ -9,6 +9,14 @@ import Combine
 import SwiftUI
 
 extension View {
+    func onAppear(
+        perform action: PassthroughSubject<Void, Never>
+    ) -> some View {
+        onAppear(
+            perform: { action.send(()) }
+        )
+    }
+    
     func sheet<Content>(
         isPresented: Binding<Bool>,
         onDismissAction: PassthroughSubject<Void, Never>,

@@ -31,10 +31,14 @@ class ContentCoordinator:
     @Published var sheetState: SheetState?
     private(set) var contentChildCoordinator: ContentChildCoordinator?
     
-    init?() {
-        let contentIds = data.contentData.objectsById.keys
-        guard let contentId = contentIds.first else { return nil }
-        viewModel = ContentViewModel(contentId: contentId, data: data)
+    init(
+        contentId: Content.ID,
+        data: DataManager
+    ) {
+        viewModel = ContentViewModel(
+            contentId: contentId,
+            data: data
+        )
         viewModel.coordinator = self
     }
     

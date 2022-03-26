@@ -9,17 +9,31 @@ import SwiftUI
 
 @main
 struct DataLayerSampleApp: App {
-    private let data = DataManager.shared
+    @ObservedObject var coordinator = DataLayerSampleAppCoordinator()
     
     var body: some Scene {
         WindowGroup {
-            if let coordinator = ContentCoordinator() {
-                ContentCoordinatorView(
-                    coordinator: coordinator
-                )
-            } else {
-                Text("(no content)")
+            switch coordinator.state {
+            case .none:
+                EmptyView()
+            case .launch:
+                if let launchCoordinator =
+                    coordinator.launchCoordinator
+                {
+                    LaunchCoordinatorView(
+                        coordinator: launchCoordinator
+                    )
+                }
+            case .content:
+                if let contentCoordinator =
+                    coordinator.contentCoordinator
+                {
+                    ContentCoordinatorView(
+                        coordinator: contentCoordinator
+                    )
+                }
             }
+            EmptyView()
         }
     }
 }
