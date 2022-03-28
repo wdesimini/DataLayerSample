@@ -13,10 +13,17 @@ protocol LaunchModelInput: AnyObject {
 
 extension DataService: LaunchModelInput where T == Content {
     func loadLaunchData() {
-        guard let contentId = objectsById.keys.first,
-              let content = objectsById[contentId] else {
-            return
+        #warning("simulating load time")
+        DispatchQueue.global().asyncAfter(
+            deadline: .now() + 2
+        ) {
+            guard let contentId = self.objectsById.keys.first,
+                  let content = self.objectsById[contentId] else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.update(content)
+            }
         }
-        update(content)
     }
 }
