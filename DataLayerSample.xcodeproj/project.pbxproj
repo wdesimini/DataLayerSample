@@ -24,6 +24,7 @@
 		CF1B613427F2709E006978E9 /* SyncDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613327F2709E006978E9 /* SyncDataSource.swift */; };
 		CF1B613627F27199006978E9 /* FileManager+SyncDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613527F27199006978E9 /* FileManager+SyncDataSource.swift */; };
 		CF1B613827F2729A006978E9 /* FileManager+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613727F2729A006978E9 /* FileManager+Utilities.swift */; };
+		CF1B613A27F27758006978E9 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613927F27758006978E9 /* ContentModel.swift */; };
 		CF27893227ED5D77009D9FAB /* TestableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27893127ED5D77009D9FAB /* TestableDataSource.swift */; };
 		CF2991DC275ACE3600E5950A /* MockContent.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2991DB275ACE3600E5950A /* MockContent.json */; };
 		CF77308627E5157F00A8C392 /* ContentChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF77308527E5157F00A8C392 /* ContentChild.swift */; };
@@ -92,6 +93,7 @@
 		CF1B613327F2709E006978E9 /* SyncDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncDataSource.swift; sourceTree = "<group>"; };
 		CF1B613527F27199006978E9 /* FileManager+SyncDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+SyncDataSource.swift"; sourceTree = "<group>"; };
 		CF1B613727F2729A006978E9 /* FileManager+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Utilities.swift"; sourceTree = "<group>"; };
+		CF1B613927F27758006978E9 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		CF27893127ED5D77009D9FAB /* TestableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataSource.swift; sourceTree = "<group>"; };
 		CF2991DB275ACE3600E5950A /* MockContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContent.json; sourceTree = "<group>"; };
 		CF77308527E5157F00A8C392 /* ContentChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChild.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				CF78CA8027E503BF009A2CE3 /* ContentCoordinator.swift */,
+				CF1B613927F27758006978E9 /* ContentModel.swift */,
 				CF0ADBC127586E9200AC4FB9 /* ContentView.swift */,
 				CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */,
 			);
@@ -502,6 +505,7 @@
 				CF0ADC45275890E500AC4FB9 /* DataService.swift in Sources */,
 				CF78CA7D27E4FB77009A2CE3 /* DeferView.swift in Sources */,
 				CF77308627E5157F00A8C392 /* ContentChild.swift in Sources */,
+				CF1B613A27F27758006978E9 /* ContentModel.swift in Sources */,
 				CFEC55E527EF985D000FDB7B /* DataLayerSampleAppCoordinator.swift in Sources */,
 				CFFCEF2E27ED0AA8002E567B /* MockDataServicer.swift in Sources */,
 				CF77308C27E5195B00A8C392 /* ContentChildViewModel.swift in Sources */,

@@ -14,18 +14,19 @@ protocol ContentViewModelInput: ObservableObject {
     var didTapUpdate: PassthroughSubject<Void, Never> { get }
 }
 
-class ContentViewModel: ContentViewModelInput {
+class ContentViewModel<ModelType>: ContentViewModelInput
+where ModelType: ContentModelInput {
     private let contentId: Content.ID
     @Published private var content: Content?
-    @ObservedObject private var service: DataService<Content>
+    @ObservedObject private var service: ModelType
     let didTapShowChild: PassthroughSubject<Void, Never>
     let didTapUpdate: PassthroughSubject<Void, Never>
     var cancellables: Set<AnyCancellable>!
     weak var coordinator: ContentCoordinatorInput?
     
-    init(contentId: Content.ID, data: DataManager) {
+    init(contentId: Content.ID, service: ModelType) {
         self.contentId = contentId
-        self.service = data.contentData
+        self.service = service
         self.didTapShowChild = PassthroughSubject()
         self.didTapUpdate = PassthroughSubject()
         self.bind()
@@ -34,7 +35,7 @@ class ContentViewModel: ContentViewModelInput {
     private func bind() {
         cancellables = .init()
         weak var welf = self
-        service.$objectsById
+        service.objectPublisher
             .sink { welf?.didReceive(contentById: $0) }
             .store(in: &cancellables)
         didTapShowChild
@@ -54,10 +55,7 @@ class ContentViewModel: ContentViewModelInput {
     }
     
     private func updateContent() {
-        let contentsById = service.objectsById
-        guard var content = contentsById[contentId] else { return }
-        content.text = "ayo, \(content.text)"
-        service.update(content)
+        service.updateContent(id: contentId)
     }
     
     private func showContentChild() {

@@ -26,7 +26,7 @@ class ContentCoordinator:
     ContentChildCoordinatorParent,
     ObservableObject
 {
-    let viewModel: ContentViewModel
+    let viewModel: ContentViewModel<DataService<Content>>
     private let data = DataManager.shared
     @Published var sheetState: SheetState?
     private(set) var contentChildCoordinator: ContentChildCoordinator?
@@ -35,9 +35,9 @@ class ContentCoordinator:
         contentId: Content.ID,
         data: DataManager
     ) {
-        viewModel = ContentViewModel(
+        viewModel = .init(
             contentId: contentId,
-            data: data
+            service: data.contentData
         )
         viewModel.coordinator = self
     }

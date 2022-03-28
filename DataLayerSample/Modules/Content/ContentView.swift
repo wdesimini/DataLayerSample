@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct ContentView<
-    ViewModelType: ContentViewModelInput
-> : View {
+struct ContentView<ViewModelType>: View
+where ViewModelType: ContentViewModelInput {
     @ObservedObject var viewModel: ViewModelType
     
     var body: some View {
@@ -37,7 +36,7 @@ struct ContentView_Previews: PreviewProvider {
         let data = DataManager.preview
         let mock = data.contentData.mockObject
         let viewModel = ContentViewModel(
-            contentId: mock.id, data: data
+            contentId: mock.id, service: data.contentData
         )
         return ContentView(viewModel: viewModel)
     }
