@@ -25,12 +25,3 @@ protocol DataSource {
         completion: @escaping ErrorHandler
     )
 }
-
-extension DataSource {
-    func register(
-        type: String,
-        completion: @escaping ErrorHandler
-    ) {
-        completion(nil)
-    }
-}

@@ -21,6 +21,9 @@
 		CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */; };
 		CF1B613027F26CB8006978E9 /* DataServicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B612F27F26CB8006978E9 /* DataServicer.swift */; };
 		CF1B613227F26CDF006978E9 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613127F26CDF006978E9 /* DataLoader.swift */; };
+		CF1B613427F2709E006978E9 /* SyncDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613327F2709E006978E9 /* SyncDataSource.swift */; };
+		CF1B613627F27199006978E9 /* FileManager+SyncDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613527F27199006978E9 /* FileManager+SyncDataSource.swift */; };
+		CF1B613827F2729A006978E9 /* FileManager+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613727F2729A006978E9 /* FileManager+Utilities.swift */; };
 		CF27893227ED5D77009D9FAB /* TestableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27893127ED5D77009D9FAB /* TestableDataSource.swift */; };
 		CF2991DC275ACE3600E5950A /* MockContent.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2991DB275ACE3600E5950A /* MockContent.json */; };
 		CF77308627E5157F00A8C392 /* ContentChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF77308527E5157F00A8C392 /* ContentChild.swift */; };
@@ -86,6 +89,9 @@
 		CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		CF1B612F27F26CB8006978E9 /* DataServicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServicer.swift; sourceTree = "<group>"; };
 		CF1B613127F26CDF006978E9 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		CF1B613327F2709E006978E9 /* SyncDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncDataSource.swift; sourceTree = "<group>"; };
+		CF1B613527F27199006978E9 /* FileManager+SyncDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+SyncDataSource.swift"; sourceTree = "<group>"; };
+		CF1B613727F2729A006978E9 /* FileManager+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Utilities.swift"; sourceTree = "<group>"; };
 		CF27893127ED5D77009D9FAB /* TestableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataSource.swift; sourceTree = "<group>"; };
 		CF2991DB275ACE3600E5950A /* MockContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContent.json; sourceTree = "<group>"; };
 		CF77308527E5157F00A8C392 /* ContentChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChild.swift; sourceTree = "<group>"; };
@@ -309,7 +315,10 @@
 			children = (
 				CFD7BCE8278B4DD800E249A4 /* DataSource.swift */,
 				CFD7BCEA278B4E9200E249A4 /* FileManager+DataSource.swift */,
+				CF1B613527F27199006978E9 /* FileManager+SyncDataSource.swift */,
+				CF1B613727F2729A006978E9 /* FileManager+Utilities.swift */,
 				CF016BC6278C950C001A5102 /* PreviewDataSource.swift */,
+				CF1B613327F2709E006978E9 /* SyncDataSource.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -465,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF0ADBC227586E9200AC4FB9 /* ContentView.swift in Sources */,
+				CF1B613427F2709E006978E9 /* SyncDataSource.swift in Sources */,
 				CFEC55E027EF8FFB000FDB7B /* LaunchView.swift in Sources */,
 				CF016BC7278C950C001A5102 /* PreviewDataSource.swift in Sources */,
 				CFEC55E127EF8FFB000FDB7B /* LaunchViewModel.swift in Sources */,
@@ -485,7 +495,9 @@
 				CFFCEF2C27ECE4E5002E567B /* DataRegistrar.swift in Sources */,
 				CFEC55DF27EF8FFB000FDB7B /* LaunchCoordinator.swift in Sources */,
 				CFD7BCEB278B4E9200E249A4 /* FileManager+DataSource.swift in Sources */,
+				CF1B613627F27199006978E9 /* FileManager+SyncDataSource.swift in Sources */,
 				CF77308A27E5178E00A8C392 /* ContentChildCoordinator.swift in Sources */,
+				CF1B613827F2729A006978E9 /* FileManager+Utilities.swift in Sources */,
 				CF0ADC8427593BC400AC4FB9 /* DataManager.swift in Sources */,
 				CF0ADC45275890E500AC4FB9 /* DataService.swift in Sources */,
 				CF78CA7D27E4FB77009A2CE3 /* DeferView.swift in Sources */,
