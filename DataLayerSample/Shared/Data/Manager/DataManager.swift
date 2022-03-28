@@ -41,7 +41,7 @@ class DataManager {
     func register() {
         let group = DispatchGroup()
         var error: Error?
-        let services: [RegisteredDataServicer] = [
+        let services: [DataRegistrar] = [
             contentData,
             contentChildData
         ]

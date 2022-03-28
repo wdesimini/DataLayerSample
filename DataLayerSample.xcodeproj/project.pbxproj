@@ -19,6 +19,8 @@
 		CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */; };
 		CF0ADC8427593BC400AC4FB9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC8327593BC400AC4FB9 /* DataManager.swift */; };
 		CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */; };
+		CF1B613027F26CB8006978E9 /* DataServicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B612F27F26CB8006978E9 /* DataServicer.swift */; };
+		CF1B613227F26CDF006978E9 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613127F26CDF006978E9 /* DataLoader.swift */; };
 		CF27893227ED5D77009D9FAB /* TestableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27893127ED5D77009D9FAB /* TestableDataSource.swift */; };
 		CF2991DC275ACE3600E5950A /* MockContent.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2991DB275ACE3600E5950A /* MockContent.json */; };
 		CF77308627E5157F00A8C392 /* ContentChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF77308527E5157F00A8C392 /* ContentChild.swift */; };
@@ -42,7 +44,7 @@
 		CFEC55E527EF985D000FDB7B /* DataLayerSampleAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEC55E427EF985D000FDB7B /* DataLayerSampleAppCoordinator.swift */; };
 		CFFCEF2827ECE24B002E567B /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2727ECE24B002E567B /* DataParser.swift */; };
 		CFFCEF2A27ECE38D002E567B /* MockDataCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2927ECE38D002E567B /* MockDataCreator.swift */; };
-		CFFCEF2C27ECE4E5002E567B /* RegisteredDataServicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2B27ECE4E5002E567B /* RegisteredDataServicer.swift */; };
+		CFFCEF2C27ECE4E5002E567B /* DataRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2B27ECE4E5002E567B /* DataRegistrar.swift */; };
 		CFFCEF2E27ED0AA8002E567B /* MockDataServicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFCEF2D27ED0AA8002E567B /* MockDataServicer.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceable.swift; sourceTree = "<group>"; };
 		CF0ADC8327593BC400AC4FB9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		CF1B612F27F26CB8006978E9 /* DataServicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServicer.swift; sourceTree = "<group>"; };
+		CF1B613127F26CDF006978E9 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		CF27893127ED5D77009D9FAB /* TestableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataSource.swift; sourceTree = "<group>"; };
 		CF2991DB275ACE3600E5950A /* MockContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContent.json; sourceTree = "<group>"; };
 		CF77308527E5157F00A8C392 /* ContentChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChild.swift; sourceTree = "<group>"; };
@@ -105,7 +109,7 @@
 		CFEC55E427EF985D000FDB7B /* DataLayerSampleAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerSampleAppCoordinator.swift; sourceTree = "<group>"; };
 		CFFCEF2727ECE24B002E567B /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		CFFCEF2927ECE38D002E567B /* MockDataCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataCreator.swift; sourceTree = "<group>"; };
-		CFFCEF2B27ECE4E5002E567B /* RegisteredDataServicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredDataServicer.swift; sourceTree = "<group>"; };
+		CFFCEF2B27ECE4E5002E567B /* DataRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRegistrar.swift; sourceTree = "<group>"; };
 		CFFCEF2D27ED0AA8002E567B /* MockDataServicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataServicer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,12 +263,14 @@
 		CF0ADC6C275938CE00AC4FB9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				CF1B613127F26CDF006978E9 /* DataLoader.swift */,
 				CFFCEF2727ECE24B002E567B /* DataParser.swift */,
+				CFFCEF2B27ECE4E5002E567B /* DataRegistrar.swift */,
 				CF0ADC44275890E500AC4FB9 /* DataService.swift */,
 				CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */,
+				CF1B612F27F26CB8006978E9 /* DataServicer.swift */,
 				CFFCEF2927ECE38D002E567B /* MockDataCreator.swift */,
 				CFFCEF2D27ED0AA8002E567B /* MockDataServicer.swift */,
-				CFFCEF2B27ECE4E5002E567B /* RegisteredDataServicer.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -468,13 +474,15 @@
 				CFFCEF2827ECE24B002E567B /* DataParser.swift in Sources */,
 				CF78CA7F27E4FEBB009A2CE3 /* View+Willy.swift in Sources */,
 				CF78CA8127E503BF009A2CE3 /* ContentCoordinator.swift in Sources */,
+				CF1B613027F26CB8006978E9 /* DataServicer.swift in Sources */,
 				CF0ADBC027586E9200AC4FB9 /* DataLayerSampleApp.swift in Sources */,
 				CF78CA7827E4E190009A2CE3 /* Button+Willy.swift in Sources */,
+				CF1B613227F26CDF006978E9 /* DataLoader.swift in Sources */,
 				CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */,
 				CF0ADC0727587A9700AC4FB9 /* Content.swift in Sources */,
 				CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */,
 				CFFCEF2A27ECE38D002E567B /* MockDataCreator.swift in Sources */,
-				CFFCEF2C27ECE4E5002E567B /* RegisteredDataServicer.swift in Sources */,
+				CFFCEF2C27ECE4E5002E567B /* DataRegistrar.swift in Sources */,
 				CFEC55DF27EF8FFB000FDB7B /* LaunchCoordinator.swift in Sources */,
 				CFD7BCEB278B4E9200E249A4 /* FileManager+DataSource.swift in Sources */,
 				CF77308A27E5178E00A8C392 /* ContentChildCoordinator.swift in Sources */,

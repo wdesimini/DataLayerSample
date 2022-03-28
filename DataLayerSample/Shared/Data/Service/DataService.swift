@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataService<T: DataServiceable>: ObservableObject {
+class DataService<T: DataServiceable> {
     typealias Handler = () -> Void
     typealias ErrorHandler = (Error?) -> Void
     typealias LoadHandler = (Result<T?, Error>) -> Void
@@ -17,6 +17,36 @@ class DataService<T: DataServiceable>: ObservableObject {
     
     init(source: DataSource) {
         self.source = source
+    }
+}
+
+// MARK: DataLoader
+
+extension DataService: DataLoader {
+    func load(objectWithId id: T.ID) {
+        let path = T.pathComponents(id: id)
+        source.loadData(at: path) {
+            [weak self] in
+            switch $0 {
+            case .success(let data):
+                let object: T? =
+                data.flatMap(DataParser.parse(_:))
+                object.flatMap {
+                    self?.objectsById[$0.id] = $0
+                }
+            case .failure(let error):
+                #warning("tbd - handle data loading failure")
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+}
+
+// MARK: DataServicer
+
+extension DataService: DataServicer {
+    var objectPublisher: Published<[T.ID : T]>.Publisher {
+        $objectsById
     }
     
     func create(_ object: T) {
@@ -40,30 +70,7 @@ class DataService<T: DataServiceable>: ObservableObject {
         save(object)
     }
     
-    func load(
-        objectWithId id: T.ID,
-        completion: LoadHandler? = nil
-    ) {
-        let path = T.pathComponents(id: id)
-        source.loadData(at: path) {
-            [weak self] in
-            let result: Result<T?, Error>
-            switch $0 {
-            case .success(let data):
-                let object: T? =
-                data.flatMap(DataParser.parse(_:))
-                object.flatMap {
-                    self?.objectsById[$0.id] = $0
-                }
-                result = .success(object)
-            case .failure(let error):
-                result = .failure(error)
-            }
-            completion?(result)
-        }
-    }
-    
-    func save(
+    private func save(
         _ object: T,
         completion: ErrorHandler? = nil
     ) {
@@ -81,7 +88,6 @@ class DataService<T: DataServiceable>: ObservableObject {
             completion?(error)
         }
     }
-    
 }
 
 // MARK: MockDataServicer
@@ -111,9 +117,9 @@ extension DataService: MockDataServicer {
     }
 }
 
-// MARK: RegisteredDataServicer
+// MARK: DataRegistrar
 
-extension DataService: RegisteredDataServicer {
+extension DataService: DataRegistrar {
     func register(completion: @escaping ErrorHandler) {
         let type = T.directoryTitle
         source.register(
