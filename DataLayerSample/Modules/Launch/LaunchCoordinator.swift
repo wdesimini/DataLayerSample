@@ -20,7 +20,7 @@ class LaunchCoordinator:
     LaunchCoordinatorInput,
     ObservableObject
 {
-    let viewModel: LaunchViewModel
+    let viewModel: LaunchViewModel<DataService<Content>>
     unowned let output: LaunchCoordinatorOutput?
     
     init(
@@ -28,7 +28,7 @@ class LaunchCoordinator:
         output: LaunchCoordinatorOutput? = nil
     ) {
         self.output = output
-        self.viewModel = LaunchViewModel(data: data)
+        self.viewModel = .init(model: data.contentData)
         self.viewModel.coordinator = self
     }
     

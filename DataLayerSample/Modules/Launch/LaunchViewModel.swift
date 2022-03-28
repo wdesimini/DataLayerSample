@@ -13,27 +13,33 @@ protocol LaunchViewModelInput: ObservableObject {
     var launchViewMessage: String { get }
 }
 
-class LaunchViewModel: LaunchViewModelInput {
+class LaunchViewModel<
+    ModelType: LaunchModelInput
+>: LaunchViewModelInput {
     let launchViewDidAppear: PassthroughSubject<Void, Never>
     weak var coordinator: LaunchCoordinatorInput?
     private var cancellables: Set<AnyCancellable>
-    @ObservedObject private var model: DataService<Content>
+    @ObservedObject private var model: ModelType
     
-    init(data: DataManager) {
+    init(model: ModelType) {
         self.cancellables = .init()
         self.launchViewDidAppear = .init()
-        self.model = data.contentData
+        self.model = model
         self.bind()
     }
     
     private func bind() {
         weak var welf = self
-        model.$objectsById
+        model.objectPublisher
             .sink { _ in welf?.coordinator?.stopLaunch() }
             .store(in: &cancellables)
         launchViewDidAppear
-            .sink { welf?.model.loadLaunchData() }
+            .sink { welf?.loadLaunchData() }
             .store(in: &cancellables)
+    }
+    
+    private func loadLaunchData() {
+        model.loadInitialContent()
     }
     
     // MARK: LaunchViewModelInput

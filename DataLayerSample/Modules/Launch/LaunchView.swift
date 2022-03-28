@@ -23,7 +23,8 @@ struct LaunchView<ViewModelType: LaunchViewModelInput>: View {
 struct LaunchView_Previews: PreviewProvider {
     static var previews: some View {
         let data = DataManager.preview
-        let viewModel = LaunchViewModel(data: data)
+        let model = data.contentData
+        let viewModel = LaunchViewModel(model: model)
         return LaunchView(viewModel: viewModel)
     }
 }
