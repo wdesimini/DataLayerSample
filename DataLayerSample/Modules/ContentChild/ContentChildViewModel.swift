@@ -13,21 +13,23 @@ protocol ContentChildViewModelInput: ObservableObject {
     var dismissPublisher: PassthroughSubject<Void, Never> { get }
 }
 
-class ContentChildViewModel: ContentChildViewModelInput {
+class ContentChildViewModel<
+    ModelType: ContentChildModelInput
+>: ContentChildViewModelInput {
     let dismissPublisher: PassthroughSubject<Void, Never>
     private let contentChildId: ContentChild.ID
     weak var coordinator: ContentChildCoordinatorInput?
     private var cancellables = Set<AnyCancellable>()
-    @ObservedObject private var service: DataService<ContentChild>
+    @ObservedObject private var service: ModelType
     @Published private var contentChild: ContentChild?
     
     init(
         contentChildId: ContentChild.ID,
-        data: DataManager
+        service: ModelType
     ) {
         self.dismissPublisher = PassthroughSubject()
         self.contentChildId = contentChildId
-        self.service = data.contentChildData
+        self.service = service
         self.bind()
     }
     
@@ -40,7 +42,7 @@ class ContentChildViewModel: ContentChildViewModelInput {
         dismissPublisher
             .sink { welf?.coordinator?.stopChildContent() }
             .store(in: &cancellables)
-        service.$objectsById
+        service.objectPublisher
             .sink { welf?.didReceiveObjectsById($0) }
             .store(in: &cancellables)
     }

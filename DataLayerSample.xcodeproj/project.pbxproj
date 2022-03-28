@@ -25,6 +25,7 @@
 		CF1B613627F27199006978E9 /* FileManager+SyncDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613527F27199006978E9 /* FileManager+SyncDataSource.swift */; };
 		CF1B613827F2729A006978E9 /* FileManager+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613727F2729A006978E9 /* FileManager+Utilities.swift */; };
 		CF1B613A27F27758006978E9 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613927F27758006978E9 /* ContentModel.swift */; };
+		CF1B613C27F27C0C006978E9 /* ContentChildModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613B27F27C0C006978E9 /* ContentChildModel.swift */; };
 		CF27893227ED5D77009D9FAB /* TestableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27893127ED5D77009D9FAB /* TestableDataSource.swift */; };
 		CF2991DC275ACE3600E5950A /* MockContent.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2991DB275ACE3600E5950A /* MockContent.json */; };
 		CF77308627E5157F00A8C392 /* ContentChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF77308527E5157F00A8C392 /* ContentChild.swift */; };
@@ -94,6 +95,7 @@
 		CF1B613527F27199006978E9 /* FileManager+SyncDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+SyncDataSource.swift"; sourceTree = "<group>"; };
 		CF1B613727F2729A006978E9 /* FileManager+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Utilities.swift"; sourceTree = "<group>"; };
 		CF1B613927F27758006978E9 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		CF1B613B27F27C0C006978E9 /* ContentChildModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChildModel.swift; sourceTree = "<group>"; };
 		CF27893127ED5D77009D9FAB /* TestableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataSource.swift; sourceTree = "<group>"; };
 		CF2991DB275ACE3600E5950A /* MockContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContent.json; sourceTree = "<group>"; };
 		CF77308527E5157F00A8C392 /* ContentChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChild.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				CF77308927E5178E00A8C392 /* ContentChildCoordinator.swift */,
+				CF1B613B27F27C0C006978E9 /* ContentChildModel.swift */,
 				CF77308D27E51A1100A8C392 /* ContentChildView.swift */,
 				CF77308B27E5195B00A8C392 /* ContentChildViewModel.swift */,
 			);
@@ -482,6 +485,7 @@
 				CF016BC7278C950C001A5102 /* PreviewDataSource.swift in Sources */,
 				CFEC55E127EF8FFB000FDB7B /* LaunchViewModel.swift in Sources */,
 				CFD7BCE9278B4DD800E249A4 /* DataSource.swift in Sources */,
+				CF1B613C27F27C0C006978E9 /* ContentChildModel.swift in Sources */,
 				CF77308E27E51A1100A8C392 /* ContentChildView.swift in Sources */,
 				CFEC55E327EF933A000FDB7B /* LaunchModel.swift in Sources */,
 				CFFCEF2827ECE24B002E567B /* DataParser.swift in Sources */,

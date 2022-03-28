@@ -22,7 +22,10 @@ class ContentChildCoordinator:
     ContentChildCoordinatorInput,
     ObservableObject
 {
-    let viewModel: ContentChildViewModel
+    typealias ViewModelType =
+    ContentChildViewModel<DataService<ContentChild>>
+    
+    let viewModel: ViewModelType
     unowned let parent: ContentChildCoordinatorParent?
     
     init(
@@ -32,7 +35,7 @@ class ContentChildCoordinator:
     ) {
         self.viewModel = .init(
             contentChildId: contentChildId,
-            data: data
+            service: data.contentChildData
         )
         self.parent = parent
         self.viewModel.coordinator = self
