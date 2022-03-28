@@ -17,21 +17,11 @@ struct DataLayerSampleApp: App {
             case .none:
                 EmptyView()
             case .launch:
-                if let launchCoordinator =
-                    coordinator.launchCoordinator
-                {
-                    LaunchCoordinatorView(
-                        coordinator: launchCoordinator
-                    )
-                }
+                coordinator.launchCoordinator
+                    .flatMap(LaunchCoordinatorView.init(coordinator:))
             case .content:
-                if let contentCoordinator =
-                    coordinator.contentCoordinator
-                {
-                    ContentCoordinatorView(
-                        coordinator: contentCoordinator
-                    )
-                }
+                coordinator.contentCoordinator
+                    .flatMap(ContentCoordinatorView.init(coordinator:))
             }
             EmptyView()
         }
