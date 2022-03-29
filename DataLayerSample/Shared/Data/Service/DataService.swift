@@ -35,8 +35,7 @@ extension DataService: DataLoader {
                     self?.objectsById[$0.id] = $0
                 }
             case .failure(let error):
-                #warning("tbd - handle data loading failure")
-                fatalError(error.localizedDescription)
+                print(error.localizedDescription)
             }
         }
     }
