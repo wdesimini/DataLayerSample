@@ -30,4 +30,9 @@ extension FileManager: SyncDataSource {
     func registerSyncly(type: String) throws {
         try createDirectory(title: type)
     }
+    
+    func resetSyncly(type: String) throws {
+        let path = [type]
+        try saveDataSyncly(nil, at: path)
+    }
 }

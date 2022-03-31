@@ -21,23 +21,18 @@ class DataLayerSampleAppCoordinator:
     @Published private(set) var state: DataLayerSampleAppState
     
     init() {
-        var manager = DataManager.shared
-        #if DEBUG
-        manager = DataManager.preview
-        #endif
-        data = manager
+        data = .shared
         state = .none
         showLaunch()
-    }
-    
-    var launchCoordinator: LaunchCoordinator? {
-        childCoordinator as? LaunchCoordinator
     }
     
     var contentCoordinator: ContentCoordinator? {
         childCoordinator as? ContentCoordinator
     }
     
+    var launchCoordinator: LaunchCoordinator? {
+        childCoordinator as? LaunchCoordinator
+    }
     
     private func showLaunch() {
         childCoordinator =
@@ -45,18 +40,26 @@ class DataLayerSampleAppCoordinator:
         state = .launch
     }
     
-    private func showContent() {
-        let contentId =
-        data.contentData.objectsById.keys.first!
-        childCoordinator =
-        ContentCoordinator(contentId: contentId, data: data)
-        state = .content
+    private func showContent(
+        withId contentId: Content.ID?
+    ) {
+        if let contentId = contentId {
+            childCoordinator =
+            ContentCoordinator(
+                contentId: contentId, data: data
+            )
+            state = .content
+        } else {
+            state = .none
+        }
     }
     
     // MARK: LaunchCoordinatorOutput
     
     func resignLaunch() {
         childCoordinator = nil
-        showContent()
+        let contentId =
+        data.contentData.objectsById.keys.first
+        showContent(withId: contentId)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 
 protocol SyncDataSource: DataSource {
     func registerSyncly(type: String) throws
+    func resetSyncly(type: String) throws
     func loadDataSyncly(at path: Path) throws -> Data?
     func saveDataSyncly(_ data: Data?, at path: Path) throws
 }

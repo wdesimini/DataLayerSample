@@ -30,16 +30,18 @@ class LaunchViewModel<
     
     private func bind() {
         weak var welf = self
-        model.objectPublisher
-            .sink { _ in welf?.coordinator?.stopLaunch() }
-            .store(in: &cancellables)
         launchViewDidAppear
             .sink { welf?.loadLaunchData() }
             .store(in: &cancellables)
     }
     
     private func loadLaunchData() {
-        model.loadInitialContent()
+        #warning("tbd - add launching logic")
+        DispatchQueue.main.asyncAfter(
+            deadline: .now() + 1
+        ) {
+            self.coordinator?.stopLaunch()
+        }
     }
     
     // MARK: LaunchViewModelInput

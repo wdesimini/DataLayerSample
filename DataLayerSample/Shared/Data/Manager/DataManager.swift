@@ -22,13 +22,22 @@ class DataManager {
     private init(source: DataSource) {
         contentData = .init(source: source)
         contentChildData = .init(source: source)
+        #if DEBUG
+        resetSyncly()
+        #endif
     }
     
-    private func createMockData() {
-        let services: [MockDataCreator] = [
+    private var services: [Any] {
+        [
             contentData,
             contentChildData
         ]
+    }
+    
+    private func createMockData() {
+        guard let services = services as? [MockDataCreator] else {
+            return
+        }
         do {
             try services.forEach {
                 try $0.createMockData()
@@ -39,12 +48,11 @@ class DataManager {
     }
     
     func register() {
+        guard let services = services as? [DataRegistrar] else {
+            return
+        }
         let group = DispatchGroup()
         var error: Error?
-        let services: [DataRegistrar] = [
-            contentData,
-            contentChildData
-        ]
         for service in services {
             group.enter()
             service.register {
@@ -56,6 +64,19 @@ class DataManager {
             error.flatMap {
                 print($0.localizedDescription)
             }
+        }
+    }
+    
+    private func resetSyncly() {
+        guard let services = services as? [DataResetter] else {
+            return
+        }
+        do {
+            try services.forEach {
+                try $0.resetSyncly()
+            }
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

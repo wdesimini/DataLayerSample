@@ -19,6 +19,7 @@
 		CF0ADC5E2758A4CB00AC4FB9 /* DataServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */; };
 		CF0ADC8427593BC400AC4FB9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC8327593BC400AC4FB9 /* DataManager.swift */; };
 		CF0ADC892759470000AC4FB9 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */; };
+		CF14170627F6018600AD271A /* DataResetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF14170527F6018600AD271A /* DataResetter.swift */; };
 		CF1B613027F26CB8006978E9 /* DataServicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B612F27F26CB8006978E9 /* DataServicer.swift */; };
 		CF1B613227F26CDF006978E9 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613127F26CDF006978E9 /* DataLoader.swift */; };
 		CF1B613427F2709E006978E9 /* SyncDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613327F2709E006978E9 /* SyncDataSource.swift */; };
@@ -89,6 +90,7 @@
 		CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceable.swift; sourceTree = "<group>"; };
 		CF0ADC8327593BC400AC4FB9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CF0ADC882759470000AC4FB9 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		CF14170527F6018600AD271A /* DataResetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResetter.swift; sourceTree = "<group>"; };
 		CF1B612F27F26CB8006978E9 /* DataServicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServicer.swift; sourceTree = "<group>"; };
 		CF1B613127F26CDF006978E9 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		CF1B613327F2709E006978E9 /* SyncDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncDataSource.swift; sourceTree = "<group>"; };
@@ -274,16 +276,25 @@
 		CF0ADC6C275938CE00AC4FB9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				CF1B613127F26CDF006978E9 /* DataLoader.swift */,
+				CF14170427F6012900AD271A /* Protocol */,
 				CFFCEF2727ECE24B002E567B /* DataParser.swift */,
-				CFFCEF2B27ECE4E5002E567B /* DataRegistrar.swift */,
 				CF0ADC44275890E500AC4FB9 /* DataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CF14170427F6012900AD271A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CF1B613127F26CDF006978E9 /* DataLoader.swift */,
+				CFFCEF2B27ECE4E5002E567B /* DataRegistrar.swift */,
+				CF14170527F6018600AD271A /* DataResetter.swift */,
 				CF0ADC5D2758A4CB00AC4FB9 /* DataServiceable.swift */,
 				CF1B612F27F26CB8006978E9 /* DataServicer.swift */,
 				CFFCEF2927ECE38D002E567B /* MockDataCreator.swift */,
 				CFFCEF2D27ED0AA8002E567B /* MockDataServicer.swift */,
 			);
-			path = Service;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		CF2991E3275ACE7900E5950A /* Resources */ = {
@@ -490,6 +501,7 @@
 				CFEC55E327EF933A000FDB7B /* LaunchModel.swift in Sources */,
 				CFFCEF2827ECE24B002E567B /* DataParser.swift in Sources */,
 				CF78CA7F27E4FEBB009A2CE3 /* View+Willy.swift in Sources */,
+				CF14170627F6018600AD271A /* DataResetter.swift in Sources */,
 				CF78CA8127E503BF009A2CE3 /* ContentCoordinator.swift in Sources */,
 				CF1B613027F26CB8006978E9 /* DataServicer.swift in Sources */,
 				CF0ADBC027586E9200AC4FB9 /* DataLayerSampleApp.swift in Sources */,

@@ -127,3 +127,13 @@ extension DataService: DataRegistrar {
         )
     }
 }
+
+// MARK: DataResetter
+
+extension DataService: DataResetter {
+    func resetSyncly() throws {
+        let source = source as? SyncDataSource
+        let type = T.directoryTitle
+        try source?.resetSyncly(type: type)
+    }
+}
