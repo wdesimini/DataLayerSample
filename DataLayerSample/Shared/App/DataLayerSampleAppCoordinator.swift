@@ -21,7 +21,12 @@ class DataLayerSampleAppCoordinator:
     @Published private(set) var state: DataLayerSampleAppState
 
     init() {
+        #if DEBUG
+        #warning("tbd - add launching logic")
+        data = .preview
+        #else
         data = .shared
+        #endif
         state = .none
         showLaunch()
     }
