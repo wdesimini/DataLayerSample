@@ -19,6 +19,7 @@ protocol ContentChildCoordinatorParent: AnyObject {
 }
 
 class ContentChildCoordinator:
+    DebugClass,
     ContentChildCoordinatorInput,
     ObservableObject
 {
@@ -38,6 +39,7 @@ class ContentChildCoordinator:
             service: data.contentChildData
         )
         self.parent = parent
+        super.init()
         self.viewModel.coordinator = self
     }
 

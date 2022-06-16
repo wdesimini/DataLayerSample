@@ -22,6 +22,7 @@ extension ContentCoordinator {
 }
 
 class ContentCoordinator:
+    DebugClass,
     ContentCoordinatorInput,
     ContentChildCoordinatorParent,
     ObservableObject
@@ -40,6 +41,7 @@ class ContentCoordinator:
             contentId: contentId,
             service: data.contentData
         )
+        super.init()
         self.viewModel.coordinator = self
     }
 

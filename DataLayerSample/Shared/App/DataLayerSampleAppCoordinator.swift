@@ -13,6 +13,7 @@ enum DataLayerSampleAppState: String, Identifiable {
 }
 
 class DataLayerSampleAppCoordinator:
+    DebugClass,
     ObservableObject,
     LaunchCoordinatorOutput
 {
@@ -20,7 +21,7 @@ class DataLayerSampleAppCoordinator:
     private(set) var childCoordinator: AnyObject?
     @Published private(set) var state: DataLayerSampleAppState
 
-    init() {
+    override init() {
         #if DEBUG
         #warning("tbd - add launching logic")
         data = .preview
@@ -28,6 +29,7 @@ class DataLayerSampleAppCoordinator:
         data = .shared
         #endif
         state = .none
+        super.init()
         showLaunch()
     }
 

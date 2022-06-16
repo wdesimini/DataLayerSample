@@ -17,6 +17,7 @@ protocol LaunchCoordinatorOutput: AnyObject {
 }
 
 class LaunchCoordinator:
+    DebugClass,
     LaunchCoordinatorInput,
     ObservableObject
 {
@@ -29,6 +30,7 @@ class LaunchCoordinator:
     ) {
         self.output = output
         self.viewModel = .init(model: data.contentData)
+        super.init()
         self.viewModel.coordinator = self
     }
 
