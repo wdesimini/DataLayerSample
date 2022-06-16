@@ -16,7 +16,8 @@ protocol LaunchViewModelInput: ObservableObject {
 class LaunchViewModel<ModelType>:
     DebugClass,
     LaunchViewModelInput
-where ModelType: LaunchModelInput {
+where ModelType: LaunchModelInput
+{
     let launchViewDidAppear: PassthroughSubject<Void, Never>
     weak var coordinator: LaunchCoordinatorInput?
     private var cancellables: Set<AnyCancellable>

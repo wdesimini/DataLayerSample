@@ -16,8 +16,10 @@ protocol LaunchCoordinatorOutput: AnyObject {
     func resignLaunch()
 }
 
-class LaunchCoordinator: LaunchCoordinatorInput,
-    ObservableObject {
+class LaunchCoordinator:
+    LaunchCoordinatorInput,
+    ObservableObject
+{
     let viewModel: LaunchViewModel<DataService<Content>>
     unowned let output: LaunchCoordinatorOutput?
 

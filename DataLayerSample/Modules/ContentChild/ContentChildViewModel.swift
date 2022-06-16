@@ -16,7 +16,8 @@ protocol ContentChildViewModelInput: ObservableObject {
 class ContentChildViewModel<ModelType>:
     DebugClass,
     ContentChildViewModelInput
-where ModelType: ContentChildModelInput {
+where ModelType: ContentChildModelInput
+{
     let dismissPublisher: PassthroughSubject<Void, Never>
     private let contentChildId: ContentChild.ID
     weak var coordinator: ContentChildCoordinatorInput?

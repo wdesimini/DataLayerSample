@@ -21,9 +21,11 @@ extension ContentCoordinator {
     }
 }
 
-class ContentCoordinator: ContentCoordinatorInput,
+class ContentCoordinator:
+    ContentCoordinatorInput,
     ContentChildCoordinatorParent,
-    ObservableObject {
+    ObservableObject
+{
     let viewModel: ContentViewModel<DataService<Content>>
     private let data: DataManager
     @Published var sheetState: SheetState?

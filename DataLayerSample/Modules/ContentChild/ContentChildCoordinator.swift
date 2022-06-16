@@ -18,8 +18,10 @@ protocol ContentChildCoordinatorParent: AnyObject {
     func dismissChildContent()
 }
 
-class ContentChildCoordinator: ContentChildCoordinatorInput,
-    ObservableObject {
+class ContentChildCoordinator:
+    ContentChildCoordinatorInput,
+    ObservableObject
+{
     typealias ViewModelType =
     ContentChildViewModel<DataService<ContentChild>>
 
