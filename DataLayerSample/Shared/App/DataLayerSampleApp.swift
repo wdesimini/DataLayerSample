@@ -18,12 +18,11 @@ struct DataLayerSampleApp: App {
                 EmptyView()
             case .launch:
                 coordinator.launchCoordinator
-                    .flatMap(LaunchCoordinatorView.init(coordinator:))
+                    .flatMap(LaunchCoordinatorView.init)
             case .content:
                 coordinator.contentCoordinator
-                    .flatMap(ContentCoordinatorView.init(coordinator:))
+                    .flatMap(ContentCoordinatorView.init)
             }
-            EmptyView()
         }
     }
 }
