@@ -29,6 +29,7 @@
 		CF1B613C27F27C0C006978E9 /* ContentChildModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B613B27F27C0C006978E9 /* ContentChildModel.swift */; };
 		CF27893227ED5D77009D9FAB /* TestableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF27893127ED5D77009D9FAB /* TestableDataSource.swift */; };
 		CF2991DC275ACE3600E5950A /* MockContent.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2991DB275ACE3600E5950A /* MockContent.json */; };
+		CF6E6A1D285AB5AC003E2ED3 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6E6A1C285AB5AC003E2ED3 /* AppViewModel.swift */; };
 		CF77308627E5157F00A8C392 /* ContentChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF77308527E5157F00A8C392 /* ContentChild.swift */; };
 		CF77308827E5163E00A8C392 /* MockContentChild.json in Resources */ = {isa = PBXBuildFile; fileRef = CF77308727E5163E00A8C392 /* MockContentChild.json */; };
 		CF77308A27E5178E00A8C392 /* ContentChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF77308927E5178E00A8C392 /* ContentChildCoordinator.swift */; };
@@ -100,6 +101,7 @@
 		CF1B613B27F27C0C006978E9 /* ContentChildModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChildModel.swift; sourceTree = "<group>"; };
 		CF27893127ED5D77009D9FAB /* TestableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataSource.swift; sourceTree = "<group>"; };
 		CF2991DB275ACE3600E5950A /* MockContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContent.json; sourceTree = "<group>"; };
+		CF6E6A1C285AB5AC003E2ED3 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		CF77308527E5157F00A8C392 /* ContentChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChild.swift; sourceTree = "<group>"; };
 		CF77308727E5163E00A8C392 /* MockContentChild.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockContentChild.json; sourceTree = "<group>"; };
 		CF77308927E5178E00A8C392 /* ContentChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChildCoordinator.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		CF0ADBF927587A4D00AC4FB9 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				CF6E6A1C285AB5AC003E2ED3 /* AppViewModel.swift */,
 				CF0ADBBF27586E9200AC4FB9 /* DataLayerSampleApp.swift */,
 				CFEC55E427EF985D000FDB7B /* DataLayerSampleAppCoordinator.swift */,
 			);
@@ -492,6 +495,7 @@
 			files = (
 				CF0ADBC227586E9200AC4FB9 /* ContentView.swift in Sources */,
 				CF1B613427F2709E006978E9 /* SyncDataSource.swift in Sources */,
+				CF6E6A1D285AB5AC003E2ED3 /* AppViewModel.swift in Sources */,
 				CFEC55E027EF8FFB000FDB7B /* LaunchView.swift in Sources */,
 				CF016BC7278C950C001A5102 /* PreviewDataSource.swift in Sources */,
 				CFEC55E127EF8FFB000FDB7B /* LaunchViewModel.swift in Sources */,
