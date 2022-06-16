@@ -15,7 +15,7 @@ protocol ContentViewModelInput: ObservableObject {
 }
 
 class ContentViewModel<ModelType>:
-    AppViewModel,
+    DebugClass,
     ContentViewModelInput
 where ModelType: ContentModelInput {
     private let contentId: Content.ID

@@ -14,7 +14,7 @@ protocol LaunchViewModelInput: ObservableObject {
 }
 
 class LaunchViewModel<ModelType>:
-    AppViewModel,
+    DebugClass,
     LaunchViewModelInput
 where ModelType: LaunchModelInput {
     let launchViewDidAppear: PassthroughSubject<Void, Never>

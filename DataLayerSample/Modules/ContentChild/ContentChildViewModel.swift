@@ -14,7 +14,7 @@ protocol ContentChildViewModelInput: ObservableObject {
 }
 
 class ContentChildViewModel<ModelType>:
-    AppViewModel,
+    DebugClass,
     ContentChildViewModelInput
 where ModelType: ContentChildModelInput {
     let dismissPublisher: PassthroughSubject<Void, Never>

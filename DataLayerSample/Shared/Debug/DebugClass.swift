@@ -1,5 +1,5 @@
 //
-//  AppViewModel.swift
+//  DebugClass.swift
 //  DataLayerSample
 //
 //  Created by Wilson Desimini on 6/15/22.
@@ -8,11 +8,6 @@
 import Foundation
 
 #if DEBUG
-class AppViewModel: DebugClass {}
-#else
-class AppViewModel {}
-#endif
-
 class DebugClass {
     static var instanceCountByTypeDescription = [String: Int]()
     static var typeDescription: String {
@@ -33,3 +28,6 @@ class DebugClass {
         print("\(typeDescription) deinit - \(instanceCount)")
     }
 }
+#else
+class DebugClass {}
+#endif
