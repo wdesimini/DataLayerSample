@@ -13,9 +13,10 @@ protocol ContentChildViewModelInput: ObservableObject {
     var dismissPublisher: PassthroughSubject<Void, Never> { get }
 }
 
-class ContentChildViewModel<
-    ModelType: ContentChildModelInput
->: ContentChildViewModelInput {
+class ContentChildViewModel<ModelType>:
+    AppViewModel,
+    ContentChildViewModelInput
+where ModelType: ContentChildModelInput {
     let dismissPublisher: PassthroughSubject<Void, Never>
     private let contentChildId: ContentChild.ID
     weak var coordinator: ContentChildCoordinatorInput?
@@ -30,6 +31,7 @@ class ContentChildViewModel<
         self.dismissPublisher = PassthroughSubject()
         self.contentChildId = contentChildId
         self.service = service
+        super.init()
         self.bind()
     }
 

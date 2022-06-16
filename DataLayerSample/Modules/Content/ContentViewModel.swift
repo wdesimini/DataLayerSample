@@ -14,7 +14,9 @@ protocol ContentViewModelInput: ObservableObject {
     var didTapUpdate: PassthroughSubject<Void, Never> { get }
 }
 
-class ContentViewModel<ModelType>: ContentViewModelInput
+class ContentViewModel<ModelType>:
+    AppViewModel,
+    ContentViewModelInput
 where ModelType: ContentModelInput {
     private let contentId: Content.ID
     @Published private var content: Content?
@@ -29,6 +31,7 @@ where ModelType: ContentModelInput {
         self.service = service
         self.didTapShowChild = PassthroughSubject()
         self.didTapUpdate = PassthroughSubject()
+        super.init()
         self.bind()
     }
 

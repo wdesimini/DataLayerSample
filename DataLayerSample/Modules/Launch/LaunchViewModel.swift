@@ -13,9 +13,10 @@ protocol LaunchViewModelInput: ObservableObject {
     var launchViewMessage: String { get }
 }
 
-class LaunchViewModel<
-    ModelType: LaunchModelInput
->: LaunchViewModelInput {
+class LaunchViewModel<ModelType>:
+    AppViewModel,
+    LaunchViewModelInput
+where ModelType: LaunchModelInput {
     let launchViewDidAppear: PassthroughSubject<Void, Never>
     weak var coordinator: LaunchCoordinatorInput?
     private var cancellables: Set<AnyCancellable>
@@ -25,6 +26,7 @@ class LaunchViewModel<
         self.cancellables = .init()
         self.launchViewDidAppear = .init()
         self.model = model
+        super.init()
         self.bind()
     }
 
