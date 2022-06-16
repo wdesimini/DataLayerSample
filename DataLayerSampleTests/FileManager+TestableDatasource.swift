@@ -12,7 +12,7 @@ extension FileManager: TestableDataSource {
     func registerSyncly(type: String) throws {
         try createDirectory(title: type)
     }
-    
+
     func resetSyncly(type: String) throws {
         let path = [type]
         let url = url(path: path)

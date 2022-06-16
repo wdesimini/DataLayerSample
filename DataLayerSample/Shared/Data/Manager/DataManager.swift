@@ -15,10 +15,10 @@ class DataManager {
         return manager
     }()
     static let shared = DataManager(source: FileManager.default)
-    
+
     let contentData: DataService<Content>
     let contentChildData: DataService<ContentChild>
-    
+
     private init(source: DataSource) {
         contentData = .init(source: source)
         contentChildData = .init(source: source)
@@ -26,14 +26,14 @@ class DataManager {
         resetSyncly()
         #endif
     }
-    
+
     private var services: [Any] {
         [
             contentData,
             contentChildData
         ]
     }
-    
+
     private func createMockData() {
         guard let services = services as? [MockDataCreator] else {
             return
@@ -46,7 +46,7 @@ class DataManager {
             print(error.localizedDescription)
         }
     }
-    
+
     func register() {
         guard let services = services as? [DataRegistrar] else {
             return
@@ -66,7 +66,7 @@ class DataManager {
             }
         }
     }
-    
+
     private func resetSyncly() {
         guard let services = services as? [DataResetter] else {
             return

@@ -17,14 +17,14 @@ struct PreviewDataSource: DataSource {
     ) {
         completion(nil)
     }
-    
+
     func loadData(
         at path: Path,
         completion: @escaping LoadHandler
     ) {
         completion(.success(nil))
     }
-    
+
     func saveData(
         _ data: Data?,
         at path: Path,

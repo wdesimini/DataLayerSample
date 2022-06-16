@@ -23,7 +23,7 @@ where ModelType: ContentModelInput {
     let didTapUpdate: PassthroughSubject<Void, Never>
     var cancellables: Set<AnyCancellable>!
     weak var coordinator: ContentCoordinatorInput?
-    
+
     init(contentId: Content.ID, service: ModelType) {
         self.contentId = contentId
         self.service = service
@@ -31,7 +31,7 @@ where ModelType: ContentModelInput {
         self.didTapUpdate = PassthroughSubject()
         self.bind()
     }
-    
+
     private func bind() {
         cancellables = .init()
         weak var welf = self
@@ -45,19 +45,19 @@ where ModelType: ContentModelInput {
             .sink { welf?.updateContent() }
             .store(in: &cancellables)
     }
-    
+
     var contentText: String {
         content?.text ?? "(none)"
     }
-    
+
     private func didReceive(contentById: [Content.ID: Content]) {
         content = contentById[contentId]
     }
-    
+
     private func updateContent() {
         service.updateContent(id: contentId)
     }
-    
+
     private func showContentChild() {
         if let id = content?.childContentId {
             coordinator?.showChild(contentChildId: id)

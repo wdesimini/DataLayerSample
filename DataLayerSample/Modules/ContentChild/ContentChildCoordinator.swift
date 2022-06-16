@@ -18,16 +18,14 @@ protocol ContentChildCoordinatorParent: AnyObject {
     func dismissChildContent()
 }
 
-class ContentChildCoordinator:
-    ContentChildCoordinatorInput,
-    ObservableObject
-{
+class ContentChildCoordinator: ContentChildCoordinatorInput,
+    ObservableObject {
     typealias ViewModelType =
     ContentChildViewModel<DataService<ContentChild>>
-    
+
     let viewModel: ViewModelType
     unowned let parent: ContentChildCoordinatorParent?
-    
+
     init(
         contentChildId: ContentChild.ID,
         data: DataManager,
@@ -40,9 +38,9 @@ class ContentChildCoordinator:
         self.parent = parent
         self.viewModel.coordinator = self
     }
-    
+
     // MARK: ContentChildCoordinatorInput
-    
+
     func stopChildContent() {
         parent?.dismissChildContent()
     }
@@ -52,7 +50,7 @@ class ContentChildCoordinator:
 
 struct ContentChildCoordinatorView: View {
     @ObservedObject var coordinator: ContentChildCoordinator
-    
+
     var body: some View {
         ContentChildView(
             viewModel: coordinator.viewModel

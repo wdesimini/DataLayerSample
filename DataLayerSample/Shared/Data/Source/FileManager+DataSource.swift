@@ -13,11 +13,11 @@ extension FileManager: DataSource {
     static var readQueue: DispatchQueue {
         .main
     }
-    
+
     static var writeQueue: DispatchQueue {
         .global(qos: .background)
     }
-    
+
     func loadData(
         at path: Path,
         completion: @escaping LoadHandler
@@ -35,7 +35,7 @@ extension FileManager: DataSource {
             }
         }
     }
-    
+
     func saveData(
         _ data: Data?,
         at path: Path,
@@ -54,7 +54,7 @@ extension FileManager: DataSource {
             }
         }
     }
-    
+
     func register(
         type: String,
         completion: @escaping ErrorHandler

@@ -18,7 +18,7 @@ extension DataService: TestableDataService {
         let source = source as! TestableDataSource
         try source.registerSyncly(type: type)
     }
-    
+
     func resetSyncly() throws {
         let type = T.directoryTitle
         let source = source as! TestableDataSource

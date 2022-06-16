@@ -21,16 +21,14 @@ extension ContentCoordinator {
     }
 }
 
-class ContentCoordinator:
-    ContentCoordinatorInput,
+class ContentCoordinator: ContentCoordinatorInput,
     ContentChildCoordinatorParent,
-    ObservableObject
-{
+    ObservableObject {
     let viewModel: ContentViewModel<DataService<Content>>
     private let data: DataManager
     @Published var sheetState: SheetState?
     private(set) var contentChildCoordinator: ContentChildCoordinator?
-    
+
     init(
         contentId: Content.ID,
         data: DataManager
@@ -42,14 +40,14 @@ class ContentCoordinator:
         )
         self.viewModel.coordinator = self
     }
-    
+
     func onSheetDismiss() {
         contentChildCoordinator = nil
         sheetState = nil
     }
-    
+
     // MARK: ContentCoordinatorInput
-    
+
     func showChild(contentChildId: ContentChild.ID) {
         contentChildCoordinator =
         ContentChildCoordinator(
@@ -59,9 +57,9 @@ class ContentCoordinator:
         )
         sheetState = .childContent
     }
-    
+
     // MARK: ContentChildCoordinatorParent
-    
+
     func dismissChildContent() {
         onSheetDismiss()
     }
@@ -71,7 +69,7 @@ class ContentCoordinator:
 
 struct ContentCoordinatorView: View {
     @ObservedObject var coordinator: ContentCoordinator
-    
+
     var body: some View {
         ContentView(
             viewModel: coordinator.viewModel
@@ -82,7 +80,7 @@ struct ContentCoordinatorView: View {
             content: sheetView
         )
     }
-    
+
     @ViewBuilder
     private func sheetView(
         _ sheetState: ContentCoordinator.SheetState

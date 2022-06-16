@@ -16,13 +16,11 @@ protocol LaunchCoordinatorOutput: AnyObject {
     func resignLaunch()
 }
 
-class LaunchCoordinator:
-    LaunchCoordinatorInput,
-    ObservableObject
-{
+class LaunchCoordinator: LaunchCoordinatorInput,
+    ObservableObject {
     let viewModel: LaunchViewModel<DataService<Content>>
     unowned let output: LaunchCoordinatorOutput?
-    
+
     init(
         data: DataManager,
         output: LaunchCoordinatorOutput? = nil
@@ -31,7 +29,7 @@ class LaunchCoordinator:
         self.viewModel = .init(model: data.contentData)
         self.viewModel.coordinator = self
     }
-    
+
     func stopLaunch() {
         output?.resignLaunch()
     }
@@ -39,7 +37,7 @@ class LaunchCoordinator:
 
 struct LaunchCoordinatorView: View {
     @ObservedObject var coordinator: LaunchCoordinator
-    
+
     var body: some View {
         LaunchView(
             viewModel: coordinator.viewModel

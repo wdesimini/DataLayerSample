@@ -16,12 +16,12 @@ extension View {
             perform: { action.send(()) }
         )
     }
-    
+
     func sheet<Content>(
         isPresented: Binding<Bool>,
         onDismissAction: PassthroughSubject<Void, Never>,
         @ViewBuilder content: @escaping () -> Content
-    ) -> some View where Content : View {
+    ) -> some View where Content: View {
         sheet(
             isPresented: isPresented,
             onDismiss: { onDismissAction.send(()) },

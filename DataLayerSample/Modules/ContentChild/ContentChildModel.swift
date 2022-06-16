@@ -7,12 +7,11 @@
 
 import Foundation
 
-protocol ContentChildModelInput:
-    DataServicer
+protocol ContentChildModelInput: DataServicer
 where T == ContentChild {
 }
 
 extension DataService: ContentChildModelInput
 where T == ContentChild {
-    
+
 }

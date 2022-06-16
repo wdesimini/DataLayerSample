@@ -11,10 +11,10 @@ class DataService<T: DataServiceable> {
     typealias Handler = () -> Void
     typealias ErrorHandler = (Error?) -> Void
     typealias LoadHandler = (Result<T?, Error>) -> Void
-    
+
     let source: DataSource
     @Published private(set) var objectsById = [T.ID: T]()
-    
+
     init(source: DataSource) {
         self.source = source
     }
@@ -44,37 +44,37 @@ extension DataService: DataLoader {
 // MARK: DataServicer
 
 extension DataService: DataServicer {
-    var objectPublisher: Published<[T.ID : T]>.Publisher {
+    var objectPublisher: Published<[T.ID: T]>.Publisher {
         $objectsById
     }
-    
+
     func create(_ object: T) {
         objectsById[object.id] = object
         save(object)
     }
-    
+
     func delete(_ object: T) {
         objectsById.removeValue(forKey: object.id)
         let path = object.pathComponents
         source.saveData(nil, at: path) { _ in
         }
     }
-    
+
     func read(objectWithId id: T.ID) -> T? {
         objectsById[id]
     }
-    
+
     func update(_ object: T) {
         objectsById[object.id] = object
         save(object)
     }
-    
+
     private func save(
         _ object: T,
         completion: ErrorHandler? = nil
     ) {
         let group = DispatchGroup()
-        var error: Error? = nil
+        var error: Error?
         if let data = DataParser.serialize(object) {
             group.enter()
             let path = object.pathComponents
@@ -99,7 +99,7 @@ extension DataService: MockDataServicer {
     var mockObject: T {
         [T](objectsById.values).first!
     }
-    
+
     func createMockData() throws {
         let data = try mockData()
         let mock: T? = DataParser.parse(data)

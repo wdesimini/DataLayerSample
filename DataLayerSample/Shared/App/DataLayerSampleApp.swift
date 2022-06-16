@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct DataLayerSampleApp: App {
     @ObservedObject var coordinator = DataLayerSampleAppCoordinator()
-    
+
     var body: some Scene {
         WindowGroup {
             switch coordinator.state {

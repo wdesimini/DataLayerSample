@@ -21,11 +21,11 @@ extension DataServiceable {
     static var directoryTitle: String {
         .init(describing: self)
     }
-    
+
     static func pathComponents(id: Self.ID) -> [String] {
         [directoryTitle, string(fromId: id)]
     }
-    
+
     var pathComponents: [String] {
         Self.pathComponents(id: id)
     }

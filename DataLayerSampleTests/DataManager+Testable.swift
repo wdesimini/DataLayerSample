@@ -14,13 +14,13 @@ extension DataManager {
             contentChildData
         ]
     }
-    
+
     func registerSyncly() throws {
         try services.forEach {
             try $0.registerSyncly()
         }
     }
-    
+
     func resetSyncly() throws {
         try services.forEach {
             try $0.resetSyncly()

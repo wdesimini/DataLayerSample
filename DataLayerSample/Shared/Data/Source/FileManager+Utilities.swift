@@ -17,20 +17,20 @@ extension FileManager {
                             withIntermediateDirectories: false,
                             attributes: nil)
     }
-    
+
     func directoryExists(at url: URL) -> Bool {
         var exists: ObjCBool = false
         fileExists(atPath: url.path, isDirectory: &exists)
         return exists.boolValue
     }
-    
+
     private func documentsDirectory() throws -> URL {
         try url(for: .documentDirectory,
                    in: .userDomainMask,
                    appropriateFor: nil,
                    create: false)
     }
-    
+
     func url(path: Path) -> URL {
         let baseUrl = try! documentsDirectory()
         return path.reduce(baseUrl) { $0.appendingPathComponent($1) }

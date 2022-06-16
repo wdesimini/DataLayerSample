@@ -12,7 +12,7 @@ import Foundation
 struct DataParser {
     private static let decoder = JSONDecoder()
     private static let encoder = JSONEncoder()
-    
+
     static func parse<T: Decodable>(_ data: Data) -> T? {
         let object: T?
         do {
@@ -23,7 +23,7 @@ struct DataParser {
         }
         return object
     }
-    
+
     static func serialize<T: Encodable>(_ object: T) -> Data? {
         let data: Data?
         do {

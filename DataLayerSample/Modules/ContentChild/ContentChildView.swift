@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentChildView<
     ViewModelType: ContentChildViewModelInput
-> : View {
+>: View {
     @ObservedObject var viewModel: ViewModelType
-    
+
     var body: some View {
         VStack {
             Text(

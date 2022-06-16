@@ -22,7 +22,7 @@ class ContentChildViewModel<
     private var cancellables = Set<AnyCancellable>()
     @ObservedObject private var service: ModelType
     @Published private var contentChild: ContentChild?
-    
+
     init(
         contentChildId: ContentChild.ID,
         service: ModelType
@@ -32,11 +32,11 @@ class ContentChildViewModel<
         self.service = service
         self.bind()
     }
-    
+
     var contentChildText: String {
         contentChild?.text ?? "(n/a)"
     }
-    
+
     private func bind() {
         weak var welf = self
         dismissPublisher
@@ -46,7 +46,7 @@ class ContentChildViewModel<
             .sink { welf?.didReceiveObjectsById($0) }
             .store(in: &cancellables)
     }
-    
+
     private func didReceiveObjectsById(
         _ objectsById: [ContentChild.ID: ContentChild]
     ) {

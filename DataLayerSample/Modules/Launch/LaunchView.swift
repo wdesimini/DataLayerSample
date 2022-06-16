@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LaunchView<ViewModelType: LaunchViewModelInput>: View {
     @ObservedObject var viewModel: ViewModelType
-    
+
     var body: some View {
         Text(
             viewModel.launchViewMessage
