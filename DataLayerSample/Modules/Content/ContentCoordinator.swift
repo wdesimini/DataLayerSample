@@ -23,11 +23,9 @@ extension ContentCoordinator {
 
 class ContentCoordinator:
     DebugClass,
-    ContentCoordinatorInput,
-    ContentChildCoordinatorParent,
     ObservableObject
 {
-    let viewModel: ContentViewModel<DataService<Content>>
+    let viewModel: ContentViewModel
     private let data: DataManager
     @Published var sheetState: SheetState?
     private(set) var contentChildCoordinator: ContentChildCoordinator?
@@ -37,10 +35,7 @@ class ContentCoordinator:
         data: DataManager
     ) {
         self.data = data
-        self.viewModel = .init(
-            contentId: contentId,
-            service: data.contentData
-        )
+        self.viewModel = .init(contentId: contentId, model: data)
         super.init()
         self.viewModel.coordinator = self
     }
@@ -49,9 +44,11 @@ class ContentCoordinator:
         contentChildCoordinator = nil
         sheetState = nil
     }
+}
 
-    // MARK: ContentCoordinatorInput
+// MARK: ContentCoordinatorInput
 
+extension ContentCoordinator: ContentCoordinatorInput {
     func showChild(contentChildId: ContentChild.ID) {
         contentChildCoordinator =
         ContentChildCoordinator(
@@ -61,9 +58,11 @@ class ContentCoordinator:
         )
         sheetState = .childContent
     }
+}
 
-    // MARK: ContentChildCoordinatorParent
+// MARK: ContentChildCoordinatorParent
 
+extension ContentCoordinator: ContentChildCoordinatorParent {
     func dismissChildContent() {
         onSheetDismiss()
     }

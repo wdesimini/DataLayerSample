@@ -8,63 +8,63 @@
 import Combine
 import SwiftUI
 
-protocol ContentViewModelInput: ObservableObject {
-    var contentText: String { get }
-    var didTapShowChild: PassthroughSubject<Void, Never> { get }
-    var didTapUpdate: PassthroughSubject<Void, Never> { get }
-}
+// MARK: ViewModel
 
-class ContentViewModel<ModelType>:
+class ContentViewModel:
     DebugClass,
-    ContentViewModelInput
-where ModelType: ContentModelInput
+    ObservableObject
 {
-    private let contentId: Content.ID
-    @Published private var content: Content?
-    @ObservedObject private var service: ModelType
-    let didTapShowChild: PassthroughSubject<Void, Never>
-    let didTapUpdate: PassthroughSubject<Void, Never>
-    var cancellables: Set<AnyCancellable>!
     weak var coordinator: ContentCoordinatorInput?
-
-    init(contentId: Content.ID, service: ModelType) {
+    private let contentId: Content.ID
+    private let model: ContentModelInput
+    private var bag: Set<AnyCancellable>
+    @Published private var content: Content?
+    
+    init(
+        contentId: Content.ID,
+        model: ContentModelInput
+    ) {
+        self.bag = .init()
         self.contentId = contentId
-        self.service = service
-        self.didTapShowChild = PassthroughSubject()
-        self.didTapUpdate = PassthroughSubject()
+        self.model = model
         super.init()
         self.bind()
     }
-
+    
     private func bind() {
-        cancellables = .init()
         weak var welf = self
-        service.objectPublisher
-            .sink { welf?.didReceive(contentById: $0) }
-            .store(in: &cancellables)
-        didTapShowChild
-            .sink { welf?.showContentChild() }
-            .store(in: &cancellables)
-        didTapUpdate
-            .sink { welf?.updateContent() }
-            .store(in: &cancellables)
+        // create subject
+        let subject =
+        PassthroughSubject<Content, Never>()
+        subject
+            .sink { welf?.content = $0 }
+            .store(in: &bag)
+        // subscribe subject to data
+        model
+            .subscribeToContent(
+                withId: contentId,
+                through: subject)
+            .store(in: &bag)
     }
+}
 
+// MARK: ViewModelInput
+
+extension ContentViewModel {
     var contentText: String {
         content?.text ?? "(none)"
     }
 
-    private func didReceive(contentById: [Content.ID: Content]) {
-        content = contentById[contentId]
+    private var contentChildId: Content.ID? {
+        content?.childContentId
     }
 
-    private func updateContent() {
-        service.updateContent(id: contentId)
+    func showChildContent() {
+        guard let contentChildId else { return }
+        coordinator?.showChild(contentChildId: contentChildId)
     }
 
-    private func showContentChild() {
-        if let id = content?.childContentId {
-            coordinator?.showChild(contentChildId: id)
-        }
+    func updateContent() {
+        model.updateContent(id: contentId)
     }
 }
